@@ -12,5 +12,9 @@ class Contact extends Model
         'message',
         'phone',
         'subject',
+        'company',
+        'country',
+        'job_title',
+        'job_details',
     ];
 }

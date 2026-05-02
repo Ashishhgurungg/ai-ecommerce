@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-blue-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-[#1b2233] dark:text-gray-200 leading-tight">
             {{ __('Your Inquiries list') }}
         </h2>
     </x-slot>
@@ -40,6 +40,22 @@
                             <div>
                                 <label class="text-gray-400 font-medium">Message:</label>
                                 <p class="text-[#d6dfed] mt-1 line-clamp-2">{{ $inquiry->message }}</p>
+                            </div>
+                            <div>
+                                <label class="text-gray-400 font-medium">Company:</label>
+                                <p class="text-[#d6dfed] mt-1">{{ $inquiry->company }}</p>
+                            </div>
+                            <div>
+                                <label class="text-gray-400 font-medium">Country:</label>
+                                <p class="text-[#d6dfed] mt-1">{{ $inquiry->country }}</p>
+                            </div>
+                            <div>
+                                <label class="text-gray-400 font-medium">Job Title:</label>
+                                <p class="text-[#d6dfed] mt-1">{{ $inquiry->job_title }}</p>
+                            </div>
+                            <div>
+                                <label class="text-gray-400 font-medium">Job Details:</label>
+                                <p class="text-[#d6dfed] mt-1 line-clamp-2">{{ $inquiry->job_details }}</p>
                             </div>
                         </div>
                         <a href="{{ url('/inquiries-delete/'.$inquiry->id) }}" class="text-red-500 hover:underline mt-4 block">Delete</a>

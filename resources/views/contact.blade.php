@@ -43,6 +43,22 @@
           <label for="message" class="block mb-1">Message:</label>
           <textarea id="message" name="message" rows="5" class="w-full p-2 border border-gray-300 rounded bg-white text-black" required></textarea>
           </div>
+          <div>
+          <label for="company" class="block mb-1">Company:</label>
+          <input type="text" id="company" name="company" class="w-full p-2 border border-gray-300 rounded bg-white text-black" required>
+          </div>
+          <div>
+          <label for="country" class="block mb-1">Country:</label>
+          <input type="text" id="country" name="country" class="w-full p-2 border border-gray-300 rounded bg-white text-black" required>
+          </div>
+          <div>
+          <label for="job_title" class="block mb-1">Job Title:</label>
+          <input type="text" id="job_title" name="job_title" class="w-full p-2 border border-gray-300 rounded bg-white text-black" required>
+          </div>
+          <div>
+          <label for="job_details" class="block mb-1">Job Details:</label>
+          <textarea id="job_details" name="job_details" rows="5" class="w-full p-2 border border-gray-300 rounded bg-white text-black" required></textarea>
+          </div>
           <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Submit</button>
       </form>
   </main>

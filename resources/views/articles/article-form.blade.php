@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-blue-800 dark:text-gray-200 leading-tight">
+        <h2 class="font-semibold text-xl text-[#1b2233] dark:text-gray-200 leading-tight">
             {{ __('Add articles') }}
         </h2>
     </x-slot>
@@ -60,7 +60,7 @@
                                class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
 
                         <button type="submit"
-                                class="mt-6 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-200">
+                                class="mt-6 px-4 py-2 bg-[#1b2233] text-white rounded-md hover:bg-indigo-700 transition duration-200">
                             Add Article
                         </button>
                     </div>

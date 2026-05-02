@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->text('message');
             $table->string('subject');
+            $table->string('company')->nullable();
+            $table->string('country')->nullable();
+            $table->string('job_title')->nullable();
+            $table->text('job_details')->nullable();
         });
     }
 
