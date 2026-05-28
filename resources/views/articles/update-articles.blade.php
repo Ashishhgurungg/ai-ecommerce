@@ -28,13 +28,13 @@
     <input type="hidden" name="id" value="{{ $article->id }}">
 
     <label class="block mb-2 font-medium">Article Name:</label>
-    <input type="text" name="name" value="{{ old('name', $article->title) }}" class="w-full p-2 border rounded" required>
+    <input type="text" name="name" value="{{ old('name', $article->title) }}" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" required>
 
     <label class="block mt-4 mb-2 font-medium">Article Description:</label>
-    <textarea name="description" class="w-full p-2 border rounded" rows="3">{{ old('description', $article->description) }}</textarea>
+    <textarea name="description" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" rows="3">{{ old('description', $article->description) }}</textarea>
 
     <label class="block mt-4 mb-2 font-medium">Article Image:</label>
-    <input type="file" name="image" class="w-full p-2 border rounded">
+    <input type="file" name="image" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200">
 
     {{-- Hidden input to indicate removal; value = 1 when remove clicked --}}
     <input type="hidden" name="remove_image" id="remove_image_field" value="0">

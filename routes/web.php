@@ -7,6 +7,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\EventController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -71,3 +72,11 @@ Route::get('/contact', function(){
 Route::post('/submit-contact', [ContactController::class, 'submitContactForm']);
 Route::get('/inquiries', [ContactController::class, 'listInquiries'])->middleware('auth');
 Route::get('/inquiries-delete/{id}', [ContactController::class, 'deleteInquiry'])->middleware('auth');
+
+Route::get('/event', function(){
+    return view('event');
+});
+Route::get('/add-events', [EventController::class, 'showAddEventForm']);
+Route::post('/add-events', [EventController::class, 'addEvent']);
+Route::get('/all-events', [EventController::class, 'listAllEvents']);
+Route::get('/delete-event/{id}', [EventController::class, 'deleteEvent'])->middleware(['auth', 'password.confirm']);

@@ -7,6 +7,7 @@
         </a>
         <a href="{{ url('/') }}" class="{{ request()->is('/') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Home</a>
         <a href="{{ url('/services') }}" class="{{ request()->is('services') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Services</a>
+        <a href="{{ url('/event') }}" class="{{ request()->is('event') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Event</a>
         <a href="{{ url('/articles') }}" class="{{ request()->is('articles') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Articles</a>
         <a href="{{ url('/galleries') }}" class="{{ request()->is('galleries') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Gallery</a>
         <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Contact Us</a>

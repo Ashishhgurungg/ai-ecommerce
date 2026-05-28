@@ -12,8 +12,8 @@
 
   <main class="flex-grow p-6">
 
-    <h1 class="text-3xl font-bold underline">Services</h1>
-    <p class="mt-4">Welcome to the Services page.</p>
+    <h1 class="text-3xl font-bold underline dark:text-white">Services</h1>
+    <p class="mt-4 dark:text-gray-300">Welcome to the Services page.</p>
 
     @if (session('success'))
         <div class="bg-green-100 text-green-800 px-4 py-3 rounded mb-6">
@@ -37,7 +37,7 @@
             @if($service->image_path && file_exists(storage_path('app/public/services/' . $service->image_path)))
               <img src="{{ asset('storage/services/' . $service->image_path) }}" 
                   alt="{{ $service->name }}" 
-                  class="w-full h-40 object-cover rounded mb-4">
+                  class="w-full h-40 object-contain rounded mb-4">
             @else
               <img src="{{ asset('images/default.jpg') }}" 
                   alt="No image available" 

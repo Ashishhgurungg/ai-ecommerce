@@ -27,14 +27,14 @@
     @csrf
     <input type="hidden" name="id" value="{{ $service->id }}">
 
-    <label class="block mb-2 font-medium">Service Name:</label>
-    <input type="text" name="name" value="{{ old('name', $service->name) }}" class="w-full p-2 border rounded" required>
+    <label class="block mb-2 font-medium dark:text-white">Service Name:</label>
+    <input type="text" name="name" value="{{ old('name', $service->name) }}" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" required>
 
-    <label class="block mt-4 mb-2 font-medium">Service Description:</label>
-    <textarea name="description" class="w-full p-2 border rounded" rows="3">{{ old('description', $service->description) }}</textarea>
+    <label class="block mt-4 mb-2 font-medium dark:text-white">Service Description:</label>
+    <textarea name="description" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" rows="3">{{ old('description', $service->description) }}</textarea>
 
-    <label class="block mt-4 mb-2 font-medium">Service Image:</label>
-    <input type="file" name="image" class="w-full p-2 border rounded">
+    <label class="block mt-4 mb-2 font-medium dark:text-white">Service Image:</label>
+    <input type="file" name="image" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200">
 
     {{-- Hidden input to indicate removal; value = 1 when remove clicked --}}
     <input type="hidden" name="remove_image" id="remove_image_field" value="0">
@@ -53,8 +53,8 @@
         </div>
     @endif
 
-    <label class="block mt-4 mb-2 font-medium">Price:</label>
-    <input type="number" name="price" value="{{ old('price', $service->price) }}" class="w-full p-2 border rounded" required>
+    <label class="block mt-4 mb-2 font-medium dark:text-white">Price:</label>
+    <input type="number" name="price" value="{{ old('price', $service->price) }}" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" required>
 
     <button type="submit" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
         Update Service

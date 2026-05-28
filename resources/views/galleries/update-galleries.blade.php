@@ -28,13 +28,13 @@
     <input type="hidden" name="id" value="{{ $gallery->id }}">
 
     <label class="block mb-2 font-medium">gallery Name:</label>
-    <input type="text" name="name" value="{{ old('name', $gallery->title) }}" class="w-full p-2 border rounded" required>
+    <input type="text" name="name" value="{{ old('name', $gallery->title) }}" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" required>
 
     <label class="block mt-4 mb-2 font-medium">gallery Description:</label>
-    <textarea name="description" class="w-full p-2 border rounded" rows="3">{{ old('description', $gallery->description) }}</textarea>
+    <textarea name="description" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600" rows="3">{{ old('description', $gallery->description) }}</textarea>
 
     <label class="block mt-4 mb-2 font-medium">gallery Image:</label>
-    <input type="file" name="image" class="w-full p-2 border rounded">
+    <input type="file" name="image" class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200">
 
     {{-- Hidden input to indicate removal; value = 1 when remove clicked --}}
     <input type="hidden" name="remove_image" id="remove_image_field" value="0">

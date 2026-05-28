@@ -39,6 +39,12 @@
                     <x-nav-link :href="url('/inquiries')" :active="request()->is('inquiries')" class="text-white hover:text-orange-400">
                         {{ __('Inquiries') }}
                     </x-nav-link>
+                    <x-nav-link :href="url('/add-events')" :active="request()->is('add-events')" class="text-white hover:text-orange-400">
+                        {{ __('Add Events') }}
+                    </x-nav-link>
+                    <x-nav-link :href="url('/all-events')" :active="request()->is('all-events')" class="text-white hover:text-orange-400">
+                        {{ __('All Events') }}
+                    </x-nav-link>
                 </div>
             </div>
 

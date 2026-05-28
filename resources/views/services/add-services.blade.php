@@ -45,29 +45,29 @@
                         {{-- Service Name --}}
                         <label for="name" class="block mb-2 font-medium">Service Name:</label>
                         <input type="text" id="name" name="name"
-                               class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
                                value="{{ old('name') }}" required>
 
                         {{-- Service Description --}}
                         <label for="description" class="block mt-4 mb-2 font-medium">Service Description:</label>
                         <textarea id="description" name="description"
-                                  class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
+                                  class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
                                   rows="3">{{ old('description') }}</textarea>
 
                         {{-- Service Image --}}
                         <label for="image" class="block mt-4 mb-2 font-medium">Service Image:</label>
                         <input type="file" id="image" name="image"
-                               class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200">
 
                         {{-- Service Price --}}
                         <label for="price" class="block mt-4 mb-2 font-medium">Service Price:</label>
                         <input type="number" id="price" name="price"
                                step="0.01"
-                               class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
                                value="{{ old('price') }}" required>
 
                         <button type="submit"
-                                class="mt-6 px-4 py-2 bg-[#1b2233] text-white rounded-md hover:bg-indigo-700 transition duration-200">
+                                class="mt-6 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-200">
                             Add Service
                         </button>
                     </div>

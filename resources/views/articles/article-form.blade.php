@@ -45,22 +45,22 @@
                         {{-- Article Title --}}
                         <label for="name" class="block mb-2 font-medium">Article Title:</label>
                         <input type="text" id="name" name="name"
-                               class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
                                value="{{ old('name') }}" required>
 
                         {{-- Article Description --}}
                         <label for="description" class="block mt-4 mb-2 font-medium">Article Description:</label>
                         <textarea id="description" name="description" required
-                                  class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200"
+                                  class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
                                   rows="3">{{ old('description') }}</textarea>
 
                         {{-- Article Image --}}
                         <label for="image" class="block mt-4 mb-2 font-medium">Article Image:</label>
                         <input type="file" id="image" name="image"
-                               class="w-full p-2 border border-gray-300 rounded-md focus:ring focus:ring-indigo-200">
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200">
 
                         <button type="submit"
-                                class="mt-6 px-4 py-2 bg-[#1b2233] text-white rounded-md hover:bg-indigo-700 transition duration-200">
+                                class="mt-6 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-200">
                             Add Article
                         </button>
                     </div>
