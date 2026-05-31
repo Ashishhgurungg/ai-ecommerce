@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\EventRegistration;
 
 class Event extends Model
 {
@@ -13,4 +14,9 @@ class Event extends Model
         'image_path', // Store only the filename
         'price',
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany(EventRegistration::class);
+    }
 }

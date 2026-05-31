@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Article;
 use App\Models\Gallery;
-
+use App\Models\Event;
+use App\Models\EventRegistration;
+use App\Models\Contact;
 
 class HomeController extends Controller
 {
@@ -33,7 +35,7 @@ class HomeController extends Controller
     public function showArticlePage()
     {
         $articles = Article::orderBy('created_at', 'desc')->paginate(3);
-        $message = $articles->isEmpty() ? 'No services to show': null;
+        $message = $articles->isEmpty() ? 'No articles to show': null;
 
         return view('articles', compact(['articles', 'message']));
     }
@@ -45,4 +47,30 @@ class HomeController extends Controller
         return view('galleries', compact(['galleries', 'message']));
     }
 
+    public function showEventPage()
+    {
+        $events = Event::orderBy('created_at', 'desc')->paginate(3);
+        $message = $events->isEmpty() ? 'No events to show' : null;
+
+        return view('event', compact(['events', 'message']));
+    }
+
+    public function showDashboard()
+    {
+        $attendeesCount = EventRegistration::count();
+        $servicesCount = Service::count();
+        $eventsCount = Event::count();
+        $inquiriesCount = Contact::count();
+        $galleriesCount = Gallery::count();
+        $articlesCount = Article::count();
+
+        return view('dashboard', compact(
+            'attendeesCount',
+            'servicesCount',
+            'eventsCount',
+            'inquiriesCount',
+            'galleriesCount',
+            'articlesCount'
+        ));
+    }
 }

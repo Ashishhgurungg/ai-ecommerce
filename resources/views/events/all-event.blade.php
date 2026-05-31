@@ -48,7 +48,7 @@
             <h2 class="text-blue-500 text-xl font-semibold mb-2">{{ $event->name }}</h2>
 
             {{-- Date --}}
-            <p class="text-gray-400 mb-2">Date: {{ $event->date }}</p>
+            <p class="text-gray-400 mb-2 dark:text-gray-500">Date: {{ $event->date }}</p>
 
             {{-- Description with Alpine.js --}}
             <div x-data="{ expanded: false }" class="mb-2">
@@ -82,6 +82,7 @@
             {{-- Actions --}}
             <a href="{{ url('update-events/' . $event->id) }}" class="text-blue-500 hover:underline">Edit</a>
             <a href="{{ url('/delete-event/'.$event->id) }}" class="text-red-500 hover:underline ml-4">Delete</a>
+            <a href="{{ url('/events/' . $event->id . '/attendees') }}" class="text-yellow-500 hover:underline ml-4">View Attendees</a>
 
         </article>
 

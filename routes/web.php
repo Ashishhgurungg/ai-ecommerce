@@ -20,9 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [HomeController::class, 'showDashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -73,10 +71,13 @@ Route::post('/submit-contact', [ContactController::class, 'submitContactForm']);
 Route::get('/inquiries', [ContactController::class, 'listInquiries'])->middleware('auth');
 Route::get('/inquiries-delete/{id}', [ContactController::class, 'deleteInquiry'])->middleware('auth');
 
-Route::get('/event', function(){
-    return view('event');
-});
+Route::get('/event', [HomeController::class, 'showEventPage']);
 Route::get('/add-events', [EventController::class, 'showAddEventForm']);
 Route::post('/add-events', [EventController::class, 'addEvent']);
 Route::get('/all-events', [EventController::class, 'listAllEvents']);
 Route::get('/delete-event/{id}', [EventController::class, 'deleteEvent'])->middleware(['auth', 'password.confirm']);
+
+Route::get('/events/{id}', [EventController::class, 'showEventDetails']);
+Route::post('/events/{id}/register', [EventController::class, 'registerForEvent'])->name('events.register');
+Route::get('/events/{id}/attendees', [EventController::class, 'listAttendees'])->middleware('auth');
+Route::get('/events/attendees/delete/{id}', [EventController::class, 'removeAttendee'])->middleware('auth');

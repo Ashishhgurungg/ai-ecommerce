@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\EVentRegistration;
 
 class EventController extends Controller
 {
@@ -67,5 +68,45 @@ class EventController extends Controller
         $event->delete();
 
         return redirect('/all-events')->with('success', 'Event deleted successfully!');
+    }
+
+    public function showEventDetails($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events/register-event', compact('event'));
+    }
+
+    public function registerForEvent(Request $request, $id)
+    {
+        $event = Event::findOrFail($id);
+
+        // Validate registration form inputs
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+        ]);
+
+        // Create a new registration record
+        EventRegistration::create([
+            'event_id' => $event->id,
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+        ]);
+
+        return redirect('/events/' . $event->id)->with('success', 'You have successfully registered for the event!');
+    }
+
+    public function listAttendees($id)
+    {
+        $event = Event::findOrFail($id);
+        $attendees = $event->registrations; // Assuming you have a relationship defined in the Event model
+        return view('events/attendees', compact('event', 'attendees'));
+    }
+
+    public function removeAttendee($id)
+    {
+        $attendee = EventRegistration::findOrFail($id);
+        $attendee->delete();
+        return redirect()->back()->with('success', 'Attendee removed successfully!');
     }
 }

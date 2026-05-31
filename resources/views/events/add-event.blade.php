@@ -57,7 +57,7 @@
                         {{-- Event Date --}}
                         <label for="date" class="block mt-4 mb-2 font-medium">Event Date:</label>
                         <input type="date" id="date" name="date"
-                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-white dark:border-gray-600 focus:ring focus:ring-indigo-200"
+                               class="w-full p-2 border border-gray-300 rounded-md dark:bg-white-800 dark:text-black dark:border-white-600 focus:ring focus:ring-indigo-200"
                                value="{{ old('date') }}" required>
 
                         {{-- Event Image --}}
