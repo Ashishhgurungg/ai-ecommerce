@@ -16,15 +16,19 @@
                 <article class="bg-[#1d2233] border border-[#2a3145] p-5 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
 
                     {{-- Image --}}
-                    @if($gallery->image_path && file_exists(storage_path('app/public/galleries/' . $gallery->image_path)))
-                        <img src="{{ asset('storage/galleries/' . $gallery->image_path) }}"
-                             alt="{{ $gallery->name }}"
-                             class="w-full h-48 object-cover rounded-lg mb-4">
-                    @else
-                        <img src="{{ asset('images/default.jpg') }}"
-                             alt="No image"
-                             class="w-full h-48 object-cover rounded-lg mb-4">
-                    @endif
+                    @php
+    $firstImage = collect($gallery->images)->first();
+@endphp
+
+@if($firstImage)
+    <img src="{{ asset('storage/galleries/' . $firstImage) }}"
+         alt="{{ $gallery->title }}"
+         class="w-full h-48 object-cover rounded-lg mb-4">
+@else
+    <img src="{{ asset('images/default.jpg') }}"
+         alt="No image"
+         class="w-full h-48 object-cover rounded-lg mb-4">
+@endif
 
                     {{-- Title --}}
                     <h2 class="text-xl font-semibold mb-2 text-white tracking-wide">
@@ -39,6 +43,12 @@
                     <button class="read-more-btn text-blue-400 mt-2 hover:underline text-sm">
                         Read More
                     </button>
+                    <div class="mt-4 flex justify-end">
+                        <a href="{{ url('/galleries/' . $gallery->id) }}"
+                           class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                            View Details
+                        </a>
+                </div>
 
                 </article>
 

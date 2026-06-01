@@ -8,102 +8,111 @@ use App\Models\Gallery;
 
 class GalleryController extends Controller
 {
-     public function galleryForm(){
+    public function galleryForm()
+    {
         return view('galleries/gallery-form');
     }
 
-    public function creategallery(Request $request){
-        // 1️⃣ Validate form inputs
+    public function addgallery(Request $request)
+    {
         $validated = $request->validate([
-            'name' => 'required|string|max:200',
-            'description' => 'required|string',
-            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'name'        => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image.*'     => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
-        // 2️⃣ Handle image upload
-        $imageName = null;
+        $gallery = new Gallery();
+        $gallery->title = $validated['name'];
+        $gallery->description = $validated['description'] ?? '';
+
+        $images = [];
         if ($request->hasFile('image')) {
-            $image = $request->file('image');
-
-            // Generate a unique filename
-            $imageName = time() . '_' . uniqid() . '.' . $image->extension();
-
-            // Store the image in storage/app/public/services
-            $image->storeAs('galleries', $imageName, 'public');
+            foreach ($request->file('image') as $file) {
+                $imageName = time() . '_' . uniqid() . '.' . $file->extension();
+                $file->storeAs('galleries', $imageName, 'public');
+                $images[] = $imageName;
+            }
+            $gallery->images = $images;
         }
 
-        // 3️⃣ Save service to database (only store image filename)
-        gallery::create([
-            'title' => $validated['name'],
-            'description' => $validated['description'] ?? '',
-            'image_path' => $imageName ?? '', // only filename
-        ]);
+        $gallery->save();
 
-        // 4️⃣ Redirect with success message
-        return redirect('/gallery-form')->with('success', 'gallery added successfully!');
+        return redirect('/all-galleries')->with('success', 'Gallery added successfully!');
     }
 
-    public function allgalleries(){
-        $galleries = gallery::paginate(6);
+    public function allgalleries()
+    {
+        $galleries = Gallery::paginate(6);
         return view('galleries/all-galleries', compact('galleries'));
     }
 
-    public function deletegallery(Request $request){
+    public function deletegallery(Request $request)
+    {
         $id = $request->id;
-        $gallery = gallery::find($id);
+        $gallery = Gallery::find($id);
         $gallery->delete();
         return redirect('/all-galleries')->with("delete", "Deleted the gallery successfully !!!");
     }
 
-    public function showUpdateForm(Request $request){
+    public function showUpdateForm(Request $request)
+    {
         $id = $request->id;
-        $gallery = gallery::find($id);
+        $gallery = Gallery::find($id);
         return view('galleries/update-galleries', compact('gallery'));
     }
 
-    public function updategallery (Request $request){
-        // Validate inputs
+    public function updategallery(Request $request)
+    {
         $validated = $request->validate([
             'id'          => 'required|exists:galleries,id',
             'name'        => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'remove_image'=> 'nullable|boolean',
+            'image.*'     => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'remove_all'  => 'nullable|boolean',
         ]);
 
-        // Find the service
-        $gallery = gallery::findOrFail($validated['id']);
+        $gallery = Gallery::findOrFail($validated['id']);
 
-        // Handle image removal
-        if ($request->remove_image == 1 && $gallery->image_path) {
-            if (\Storage::disk('public')->exists('galleries/' . $gallery->image_path)) {
-                \Storage::disk('public')->delete('galleries/' . $gallery->image_path);
+        // 1. REMOVE ALL IMAGES (optional)
+        if ($request->remove_all == 1) {
+
+            if (!empty($gallery->images)) {
+                foreach ($gallery->images as $img) {
+                    \Storage::disk('public')->delete('galleries/' . $img);
+                }
             }
-            $gallery->image_path = null;
+
+            $gallery->images = [];
         }
 
-        // Handle new image upload
+        // 2. ADD NEW IMAGES
         if ($request->hasFile('image')) {
-            // Delete old image if exists
-            if ($gallery->image_path && \Storage::disk('public')->exists('galleries/' . $gallery->image_path)) {
-                \Storage::disk('public')->delete('galleries/' . $gallery->image_path);
+
+            $newImages = [];
+
+            foreach ($request->file('image') as $file) {
+                $imageName = time() . '_' . uniqid() . '.' . $file->extension();
+                $file->storeAs('galleries', $imageName, 'public');
+                $newImages[] = $imageName;
             }
 
-            // Store new image
-            $image = $request->file('image');
-            $imageName = time() . '_' . uniqid() . '.' . $image->extension();
-            $image->storeAs('galleries', $imageName, 'public');
-
-            $gallery->image_path = $imageName ?? '';
+            // merge old + new
+            $gallery->images = array_merge($gallery->images ?? [], $newImages);
         }
 
-        // Update other details
-        $gallery->title        = $validated['name'];
+        // 3. UPDATE TEXT FIELDS
+        $gallery->title = $validated['name'];
         $gallery->description = $validated['description'] ?? '';
 
-        // Save changes
         $gallery->save();
 
-        return redirect('/all-galleries')->with('success', 'gallery updated successfully!');
+        return redirect('/all-galleries')
+            ->with('success', 'Gallery updated successfully!');
+    }
+
+    public function showGalleryDetails($id)
+    {
+        $gallery = Gallery::findOrFail($id);
+        return view('galleries/gallery-details', compact('gallery'));
     }
 }

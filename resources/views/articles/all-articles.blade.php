@@ -1,11 +1,4 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-[#1b2233] dark:text-gray-200 leading-tight">
-            {{ __('Your Articles list') }}
-        </h2>
-    </x-slot>
-
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
+@include('layouts.header')
 
     <!-- Alpine.js -->
     <script src="https://unpkg.com/alpinejs" defer></script>
@@ -101,5 +94,4 @@
 
     </main>
 
-</body>
-</x-app-layout>
+    @include('layouts.footer')

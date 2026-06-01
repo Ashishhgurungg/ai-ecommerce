@@ -1,10 +1,4 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-[#1b2233] dark:text-gray-200 leading-tight">
-            {{ __('Your Inquiries list') }}
-        </h2>
-    </x-slot>
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
+@include('layouts.header')
     <main class="flex-grow p-6">
         <h1 class="text-3xl font-bold mb-8">Inquiries List</h1>
 
@@ -65,5 +59,4 @@
         @endif
     </main>
 
-</body>
-</x-app-layout>
+@include('layouts.footer')

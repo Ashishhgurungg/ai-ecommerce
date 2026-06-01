@@ -1,9 +1,4 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-[#1b2233] dark:text-gray-200 leading-tight">
-            {{ __('Your Attendees list') }}
-        </h2>
-    </x-slot>
+@include('layouts.header')
 <body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
     <main class="flex-grow p-6">
         <h1 class="text-3xl font-bold mb-8 dark:bg-[#566b95] p-4 rounded">Attendees List for {{ $event->name }}</h1>
@@ -38,6 +33,4 @@
             </div>
         @endif
     </main>
-
-</body>
-</x-app-layout>
+@include('layouts.footer')

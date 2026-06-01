@@ -58,11 +58,12 @@ Route::post('/update-articles', [ArticleController::class, 'updateArticle']);
 Route::get('/galleries', [HomeController::class, 'showGalleryPage']);
 
 Route::get('/gallery-form', [GalleryController::class, 'galleryForm']);
-Route::post('/gallery-form', [GalleryController::class, 'createGallery']);
+Route::post('/gallery-form', [GalleryController::class, 'addGallery']);
 Route::get('/all-galleries', [GalleryController::class, 'allGalleries']);
 Route::get('/delete-gallery/{id}', [GalleryController::class, 'deleteGallery'])->middleware(['auth', 'password.confirm']);
 Route::get('/update-galleries/{id}', [GalleryController::class, 'showUpdateForm']);
 Route::post('/update-galleries', [GalleryController::class, 'updateGallery']);
+Route::get('/galleries/{id}', [GalleryController::class, 'showGalleryDetails']);
 
 Route::get('/contact', function(){
     return view('contact');
