@@ -41,7 +41,7 @@ class HomeController extends Controller
     }
     public function showGalleryPage()
     {
-        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(4);
+        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(3);
         $message = $galleries->isEmpty() ? 'No galleries to show': null;
 
         return view('galleries', compact(['galleries', 'message']));
@@ -73,4 +73,5 @@ class HomeController extends Controller
             'articlesCount'
         ));
     }
+
 }

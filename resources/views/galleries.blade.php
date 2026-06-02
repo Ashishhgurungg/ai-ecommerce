@@ -7,7 +7,7 @@
         
         {{-- Page Title --}}
         <h1 class="text-4xl font-bold underline mb-2 tracking-wide">Gallery</h1>
-        <p class="mt-2 text-[#aab4c4] text-lg">Browse our latest collections.</p>
+        <p class="mt-2 text-[#aab4c4] text-lg">Browse our <strong>Past Events</strong> and Image collections.</p>
 
         {{-- Gallery Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-full max-w-7xl">
@@ -34,15 +34,10 @@
                     <h2 class="text-xl font-semibold mb-2 text-white tracking-wide">
                         {{ $gallery->title }}
                     </h2>
-
-                    {{-- Description with Read More / Read Less --}}
-                    <p class="text-[#b7bfcc] text-sm leading-relaxed overflow-hidden max-h-20 transition-all duration-300 read-more-text">
-                        {{ $gallery->description }}
-                    </p>
-
+<!-- 
                     <button class="read-more-btn text-blue-400 mt-2 hover:underline text-sm">
                         Read More
-                    </button>
+                    </button> -->
                     <div class="mt-4 flex justify-end">
                         <a href="{{ url('/galleries/' . $gallery->id) }}"
                            class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">

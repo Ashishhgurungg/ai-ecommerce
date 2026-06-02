@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,6 +55,7 @@ Route::get('/all-articles', [ArticleController::class, 'allArticles']);
 Route::get('/delete-article/{id}', [ArticleController::class, 'deleteArticle'])->middleware(['auth', 'password.confirm']);
 Route::get('/update-articles/{id}', [ArticleController::class, 'showUpdateForm']);
 Route::post('/update-articles', [ArticleController::class, 'updateArticle']);
+Route::get('/article/{id}', [ArticleController::class, 'showArticleDetails']);
 
 Route::get('/galleries', [HomeController::class, 'showGalleryPage']);
 
@@ -82,3 +84,8 @@ Route::get('/events/{id}', [EventController::class, 'showEventDetails']);
 Route::post('/events/{id}/register', [EventController::class, 'registerForEvent'])->name('events.register');
 Route::get('/events/{id}/attendees', [EventController::class, 'listAttendees'])->middleware('auth');
 Route::get('/events/attendees/delete/{id}', [EventController::class, 'removeAttendee'])->middleware('auth');
+
+Route::get('/review', [ReviewController::class, 'showReviewForm']);
+Route::post('/submit-review', [ReviewController::class, 'submitReview'])->name('submit.review');
+Route::get('reviews', [ReviewController::class, 'listReviews']);
+Route::get('/delete-review/{id}', [ReviewController::class, 'destroyReview'])->middleware(['auth', 'password.confirm']);

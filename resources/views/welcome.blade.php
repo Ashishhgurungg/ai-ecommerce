@@ -22,7 +22,7 @@
             text-center px-4 animate-fadeIn">
 
             <h1 class="text-5xl font-extrabold drop-shadow-xl text-white tracking-wide">
-                Welcome to Our Website
+                Welcome to AI solutions
             </h1>
 
             <p class="mt-4 text-lg text-gray-300 max-w-2xl">
@@ -97,7 +97,7 @@
 
 
     {{-- ================= TESTIMONIAL SLIDER ================= --}}
-    <section class="py-20 bg-[#111827]">
+    <section class="py-24 bg-[#111827]">
         <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
 
         <div class="swiper max-w-3xl mx-auto px-6">
@@ -105,7 +105,7 @@
             <div class="swiper-wrapper">
 
                 {{-- Testimonial 1 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 rounded-xl shadow-md">
+                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
                     <p class="text-gray-300 text-lg mb-4">
                         “Amazing service! Truly professional and very reliable.”
                     </p>
@@ -113,7 +113,7 @@
                 </div>
 
                 {{-- Testimonial 2 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 rounded-xl shadow-md">
+                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
                     <p class="text-gray-300 text-lg mb-4">
                         “Their work exceeded my expectations. Highly recommended!”
                     </p>
@@ -121,7 +121,7 @@
                 </div>
 
                 {{-- Testimonial 3 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 rounded-xl shadow-md">
+                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
                     <p class="text-gray-300 text-lg mb-4">
                         “The support team is fantastic and always ready to help.”
                     </p>

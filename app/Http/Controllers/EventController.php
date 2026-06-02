@@ -99,7 +99,7 @@ class EventController extends Controller
     public function listAttendees($id)
     {
         $event = Event::findOrFail($id);
-        $attendees = $event->registrations; // Assuming you have a relationship defined in the Event model
+        $attendees = $event->registrations()->paginate(6); // Assuming you have a relationship defined in the Event model
         return view('events/attendees', compact('event', 'attendees'));
     }
 

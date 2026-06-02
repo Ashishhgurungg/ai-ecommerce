@@ -1,6 +1,6 @@
  {{-- HEADER (normal position) --}}
   <header class="bg-[#1f2937] text-[#d6dfed] margin-10">
-    <nav class="flex justify-between items-center px-6 py-3">
+    <nav class="flex justify-between items-center px-6 py-8 text-lg">
       <div class="flex items-center gap-6">
         <a href="/">
           <img src="{{ asset('images/my-logo.svg') }}" alt="My Logo" class="block h-6 w-auto" />
@@ -13,17 +13,18 @@
         <a href="{{ url('/contact') }}" class="{{ request()->is('contact') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Contact Us</a>
         <a href="{{ url('/faq') }}" class="{{ request()->is('faq') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">FAQ</a>
         <a href="{{ url('/about') }}" class="{{ request()->is('about') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">About</a>
+        <a href="{{ url('/review') }}" class="{{ request()->is('review') ? 'text-blue-600 border-b-2 border-blue-600' : 'hover:text-blue-600' }}">Review</a>
       </div>
 
       @if (Route::has('login'))
-      <div class="flex items-center space-x-3">
+      <div class="flex items-center space-x-3 text-lg">
         @auth
-          <a href="{{ url('/dashboard') }}" class="inline-block px-5 py-1.5 rounded-sm text-sm leading-normal hover:bg-blue-600">Dashboard</a>
+          <a href="{{ url('/dashboard') }}" class="inline-block px-5 py-2.5 rounded-sm text-sm leading-normal bg-blue-600 text-white hover:bg-blue-700">Dashboard</a>
         @else
-          <a href="{{ route('login') }}" class="inline-block px-5 py-1.5 rounded-sm text-sm leading-normal border border-gray-300 hover:border-blue-600">Log in</a>
+          <a href="{{ route('login') }}" class="inline-block px-5 py-2.5 rounded-sm text-sm leading-normal bg-gray-300 text-gray-700 hover:bg-gray-400">Log in</a>
 
           @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="inline-block px-5 py-1.5 rounded-sm text-sm leading-normal border border-gray-300 hover:border-blue-600">Register</a>
+            <a href="{{ route('register') }}" class="inline-block px-5 py-2.5 rounded-sm text-sm leading-normal bg-gray-300 text-gray-700 hover:bg-gray-400">Register</a>
           @endif
         @endauth
       </div>

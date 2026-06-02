@@ -42,7 +42,7 @@ class GalleryController extends Controller
 
     public function allgalleries()
     {
-        $galleries = Gallery::paginate(6);
+        $galleries = Gallery::paginate(3);
         return view('galleries/all-galleries', compact('galleries'));
     }
 

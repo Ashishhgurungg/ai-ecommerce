@@ -51,10 +51,14 @@
                         </p>
 
                         <!-- Read More / Read Less Button -->
-                        <button
+                        <!-- <button
                             class="text-blue-400 mt-2 hover:underline"
                             @click="expanded = !expanded"
                             x-text="expanded ? 'Read Less' : 'Read More'">
+                        </button> -->
+
+                        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
+                            <a href="{{ url('/article/' . $article->id) }}">View Article</a>
                         </button>
 
                     </div>

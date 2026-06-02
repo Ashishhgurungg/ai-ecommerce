@@ -28,7 +28,7 @@ class ContactController extends Controller
 
      public function listInquiries()
      {
-            $inquiries = Contact::all();
+            $inquiries = Contact::paginate(3);
             return view('inquiries', ['inquiries' => $inquiries]);
      }
 

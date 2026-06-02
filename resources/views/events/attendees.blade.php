@@ -32,5 +32,41 @@
                 @endforeach
             </div>
         @endif
+         <!-- Pagination -->
+        <div class="flex justify-center items-center gap-2 mt-6">
+
+    {{-- Previous --}}
+    @if ($attendees->onFirstPage())
+        <span class="px-4 py-2 bg-[#566b95] rounded cursor-not-allowed">
+            Previous
+        </span>
+    @else
+        <a href="{{ $attendees->previousPageUrl() }}"
+           class="px-4 py-2 bg-[#566b95] text-white rounded">
+            Previous
+        </a>
+    @endif
+
+    {{-- Page Numbers --}}
+    @for ($i = 1; $i <= $attendees->lastPage(); $i++)
+        <a href="{{ $attendees->url($i) }}"
+           class="px-3 py-2 rounded {{ $attendees->currentPage() == $i ? 'bg-orange-600 text-white' : 'bg-[#566b95]' }}">
+            {{ $i }}
+        </a>
+    @endfor
+
+    {{-- Next --}}
+    @if ($attendees->hasMorePages())
+        <a href="{{ $attendees->nextPageUrl() }}"
+           class="px-4 py-2 bg-[#566b95] text-white rounded">
+            Next
+        </a>
+    @else
+        <span class="px-4 py-2 bg-[#566b95] rounded cursor-not-allowed">
+            Next
+        </span>
+    @endif
+
+</div>
     </main>
 @include('layouts.footer')

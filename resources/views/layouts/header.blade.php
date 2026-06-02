@@ -331,6 +331,7 @@
         ['label' => 'Services',  'url' => url('/all-services'),  'match' => 'path:all-services'],
         ['label' => 'Events',    'url' => url('/all-events'),    'match' => 'path:all-events'],
         ['label' => 'Inquiries', 'url' => url('/inquiries'),     'match' => 'path:inquiries'],
+        ['label' => 'Reviews',   'url' => url('/reviews'),       'match' => 'path:reviews'],
     ];
     $navCreates = [
         ['label' => 'Gallery', 'url' => url('/gallery-form'), 'path' => 'gallery-form'],

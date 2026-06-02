@@ -30,6 +30,7 @@
         {{-- Page Header --}}
         <h1 class="text-4xl font-bold underline tracking-wide mb-2">Services</h1>
         <p class="mt-2 text-[#aab4c4] text-lg">Explore the services we offer.</p>
+        <p class="mt-2 text-[#aab4c4] text-lg">For more information, <a href="{{ url('/contact') }}" class="text-blue-400 hover:text-blue-300 underline">Contact us</a></p>
 
         {{-- Services Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-full max-w-7xl">

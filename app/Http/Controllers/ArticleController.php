@@ -45,7 +45,7 @@ class ArticleController extends Controller
     }
 
     public function allArticles(){
-        $articles = Article::paginate(6);
+        $articles = Article::paginate(3);
         return view('articles/all-articles', compact('articles'));
     }
 
@@ -106,6 +106,12 @@ class ArticleController extends Controller
         $article->save();
 
         return redirect('/all-articles')->with('success', 'Article updated successfully!');
+    }
+
+    public function showArticleDetails(Request $request){
+        $id = $request->id;
+        $article = Article::find($id);
+        return view('articles/article-detail', compact('article'));
     }
 
 }

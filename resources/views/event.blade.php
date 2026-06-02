@@ -7,6 +7,7 @@
     <main class="flex-grow p-6 items-center flex flex-col">
         <h1 class="text-3xl font-bold underline">Events Page</h1>
         <p class="mt-4 text-center">Welcome to the Events page.</p>
+        <h2 class="text-2xl underline font-semibold mt-8">Upcoming Events</h2>
 
         <!-- Event Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full max-w-6xl">
@@ -74,6 +75,15 @@
         <!-- Pagination -->
         <div class="mt-6">
             {{ $events->links('pagination::tailwind') }}
+        </div>
+
+        <!-- Past Events -->
+        <div class="mt-12">
+            <h2 class="text-center text-2xl underline font-semibold">Past Events</h2>
+            <!-- Past events content would go here -->
+             <div class="mt-4 text-center text-gray-400"> 
+                View past events in our <a href ="{{ url('/galleries') }}" class="text-blue-400 hover:underline">Gallery Page</a>
+             </div>
         </div>
 
     </main>

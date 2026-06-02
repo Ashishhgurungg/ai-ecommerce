@@ -10,7 +10,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <h2 class="text-xl font-medium mb-4 text-gray-300 bg-gray-600 p-3 rounded-md">{{ $event->name }}</h2>
+            <h2 class="text-xl font-semibold  text-center mb-4 text-white-600 bg-blue-600 p-3 rounded-md">{{ $event->name }}</h2>
             <form method="POST" action="{{ url('/events/' . $event->id . '/register') }}" class="space-y-5">
                 @csrf
                 <div>

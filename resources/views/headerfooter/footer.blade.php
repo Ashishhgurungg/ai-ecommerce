@@ -30,7 +30,7 @@
     </ul>
 
     <!-- footer nav -->
-    <nav class="flex gap-6 text-sm text-[#b9c7e6]">
+    <nav class="flex gap-6 text-md text-[#d6dfed]">
       <a href="#" class="hover:text-white">Home</a>
       <a href="#" class="hover:text-white">About</a>
       <a href="#" class="hover:text-white">Portfolio</a>
@@ -38,6 +38,6 @@
       <a href="#" class="hover:text-white">Contact</a>
     </nav>
 
-    <p class="text-xs text-[#93a8d6]">© 2025 All rights reserved</p>
+    <p class="text-xs text-[#d6dfed]">© 2025 All rights reserved</p>
   </div>
 </footer>

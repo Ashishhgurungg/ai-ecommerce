@@ -57,6 +57,10 @@
                 @endforeach
             </div>
         @endif
+            {{-- Pagination --}}
+    <div class="mt-6">
+        {{ $inquiries->links('pagination::tailwind') }}
+    </div>
     </main>
 
 @include('layouts.footer')
