@@ -1,38 +1,68 @@
+@php $pageTitle = $article->title . ' — AI Studio Journal'; @endphp
 @include('headerfooter.boiler')
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
-
 @include('headerfooter.header')
 
-<main class="flex-grow p-6 flex flex-col items-center">
+<main class="flex-grow max-w-4xl w-full mx-auto px-6 py-12 animate-in fade-in duration-300">
 
-    {{-- Page Title --}}
-    <h1 class="text-4xl font-bold underline mb-2 tracking-wide">Blog Article</h1>
-    <div class="bg-[#1d2233] border border-[#2a3145] p-5 rounded-xl shadow-md mt-10 w-full max-w-3xl">
+    {{-- Section Architecture Header Block --}}
+    <header class="text-center max-w-xl mx-auto mb-12">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Knowledge Matrix
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+            Blog Article
+        </h1>
+    </header>
 
-        {{-- Images --}}
+    {{-- Main Editorial Container Block --}}
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl shadow-sm overflow-hidden">
+        
+        {{-- Hero Header Image Processing Layer --}}
         @if(isset($article->image_path) && $article->image_path)
-            <img src="{{ asset('storage/articles/' . $article->image_path) }}"
-                 alt="{{ $article->title }}"
-                 class="w-full h-64 object-cover rounded-lg mb-4">
+            <div class="w-full aspect-[21/9] bg-slate-100 dark:bg-slate-800 border-b border-slate-100 dark:border-slate-800/60 overflow-hidden">
+                <img src="{{ asset('storage/articles/' . $article->image_path) }}"
+                     alt="{{ $article->title }}"
+                     class="w-full h-full object-cover">
+            </div>
         @else
-            <img src="{{ asset('images/default.jpg') }}"
-                 alt="No image available"
-                 class="w-full h-64 object-cover rounded-lg mb-4">
+            {{-- Unified Structural Fallback Graphic Node --}}
+            <div class="w-full aspect-[21/9] bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800/60 flex flex-col items-center justify-center text-center p-6">
+                <svg class="w-10 h-10 text-slate-300 dark:text-slate-700 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <span class="text-[12px] font-500 text-slate-400 dark:text-slate-500">Asset Stream Null</span>
+            </div>
         @endif
 
-        {{-- Title --}}
-        <h2 class="text-2xl font-semibold mb-2 text-white tracking-wide">
-            {{ $article->title }}
-        </h2>
+        {{-- Meta Body Article Core Data --}}
+        <div class="p-6 sm:p-8">
+            
+            <span class="block text-[11px] font-700 uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">
+                Published Node Entry
+            </span>
+            
+            <h2 class="font-display text-2xl sm:text-3xl font-800 text-slate-900 dark:text-white tracking-tight mb-6">
+                {{ $article->title }}
+            </h2>
 
-        {{-- Description --}}
-        <p class="text-[#b7bfcc] text-sm leading-relaxed mt-4">
-            {{ $article->description }}
-        </p>
+            <div class="border-t border-slate-100 dark:border-slate-800/60 pt-6">
+                <div class="prose prose-slate dark:prose-invert max-w-none">
+                    <p class="text-[14px] sm:text-[15px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal whitespace-pre-line">
+                        {{ $article->description }}
+                    </p>
+                </div>
+            </div>
 
+        </div>
+    </div>
+
+    {{-- System Core Direct Support Line Hook --}}
+    <div class="mt-8 text-left">
+        <a href="{{ url()->previous() }}" class="inline-flex items-center gap-1.5 text-[13px] font-600 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+            <span class="tracking-normal">&larr;</span> Return to Article Directory
+        </a>
     </div>
 
 </main>
 
-</body>
-</html>
+@include('headerfooter.footer')

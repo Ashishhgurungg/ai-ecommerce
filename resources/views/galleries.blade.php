@@ -1,88 +1,81 @@
+@php $pageTitle = 'Media Repositories & Gallery — AI Studio'; @endphp
 @include('headerfooter.boiler')
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
+@include('headerfooter.header')
 
-    @include('headerfooter.header')
+<main class="flex-grow max-w-7xl w-full mx-auto px-6 py-12 animate-in fade-in duration-300">
 
-    <main class="flex-grow p-6 flex flex-col items-center">
-        
-        {{-- Page Title --}}
-        <h1 class="text-4xl font-bold underline mb-2 tracking-wide">Gallery</h1>
-        <p class="mt-2 text-[#aab4c4] text-lg">Browse our <strong>Past Events</strong> and Image collections.</p>
+    {{-- Section Architecture Header Block --}}
+    <header class="text-center max-w-xl mx-auto mb-12">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Systems Media
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+            Media Repositories
+        </h1>
+        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
+            Browse through image collections, historical system logs, and capture data frames from our past event nodes.
+        </p>
+    </header>
 
-        {{-- Gallery Grid --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-full max-w-7xl">
+    {{-- Gallery Matrix Grid Grid --}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-            @forelse ($galleries ?? [] as $gallery)
-                <article class="bg-[#1d2233] border border-[#2a3145] p-5 rounded-xl shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
+        @forelse ($galleries ?? [] as $gallery)
+            @php
+                $firstImage = collect($gallery->images)->first();
+            @endphp
 
-                    {{-- Image --}}
-                    @php
-    $firstImage = collect($gallery->images)->first();
-@endphp
+            <article class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                
+                <div>
+                    {{-- Graphic Context Array Wrapper --}}
+                    <div class="w-full h-48 rounded-xl overflow-hidden mb-4 relative bg-slate-100 dark:bg-slate-800/50">
+                        @if($firstImage)
+                            <img src="{{ asset('storage/galleries/' . $firstImage) }}"
+                                 alt="{{ $gallery->title }} Content Stream"
+                                 class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300">
+                        @else
+                            <img src="{{ asset('images/default.jpg') }}"
+                                 alt="No operational visual allocated"
+                                 class="w-full h-full object-cover opacity-80 mix-blend-normal dark:opacity-40">
+                        @endif
+                    </div>
 
-@if($firstImage)
-    <img src="{{ asset('storage/galleries/' . $firstImage) }}"
-         alt="{{ $gallery->title }}"
-         class="w-full h-48 object-cover rounded-lg mb-4">
-@else
-    <img src="{{ asset('images/default.jpg') }}"
-         alt="No image"
-         class="w-full h-48 object-cover rounded-lg mb-4">
-@endif
-
-                    {{-- Title --}}
-                    <h2 class="text-xl font-semibold mb-2 text-white tracking-wide">
+                    {{-- Title Anchor Module --}}
+                    <h2 class="text-[17px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                         {{ $gallery->title }}
                     </h2>
-<!-- 
-                    <button class="read-more-btn text-blue-400 mt-2 hover:underline text-sm">
-                        Read More
-                    </button> -->
-                    <div class="mt-4 flex justify-end">
-                        <a href="{{ url('/galleries/' . $gallery->id) }}"
-                           class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
-                            View Details
-                        </a>
                 </div>
 
-                </article>
-
-            @empty
-                <div class="col-span-full text-center bg-yellow-200 text-yellow-900 px-4 py-3 rounded-lg font-semibold">
-                    {{ $message ?? 'No galleries available.' }}
+                {{-- Action Pipeline Operational Module --}}
+                <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-5 flex items-center justify-between gap-2">
+                    <span class="text-[11px] font-600 text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        {{ count($gallery->images ?? []) }} Asset Frameworks
+                    </span>
+                    
+                    <a href="{{ url('/galleries/' . $gallery->id) }}"
+                       class="inline-flex items-center justify-center px-4 py-2 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[12.5px] font-600 rounded-xl transition-all shadow-sm">
+                        View Details
+                    </a>
                 </div>
-            @endforelse
 
+            </article>
+        @empty
+            <div class="col-span-full text-center bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 p-6 rounded-xl font-500 text-[14px]">
+                <i class="fa-solid fa-images block text-2xl mb-2 opacity-80"></i>
+                {{ $message ?? 'No active media galleries found inside this directory structure.' }}
+            </div>
+        @endforelse
+
+    </div>
+
+    {{-- System Core Target Pagination Interface --}}
+    @if(method_exists($galleries, 'links'))
+        <div class="mt-12 flex justify-center">
+            {{ $galleries->links() }}
         </div>
+    @endif
 
-        {{-- Pagination --}}
-        <div class="mt-10">
-            {{ $galleries->links('pagination::tailwind') }}
-        </div>
+</main>
 
-    </main>
-
-    @include('headerfooter.footer')
-
-    {{-- Read More Script --}}
-    <script>
-        document.querySelectorAll(".read-more-btn").forEach((btn, index) => {
-            btn.addEventListener("click", () => {
-                const text = btn.previousElementSibling;
-
-                if (text.classList.contains("max-h-20")) {
-                    text.classList.remove("max-h-20");
-                    text.classList.add("max-h-full");
-                    btn.textContent = "Read Less";
-                } else {
-                    text.classList.add("max-h-20");
-                    text.classList.remove("max-h-full");
-                    btn.textContent = "Read More";
-                }
-            });
-        });
-    </script>
-
-</body>
-</html>
-
+@include('headerfooter.footer')

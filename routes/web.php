@@ -84,6 +84,8 @@ Route::get('/events/{id}', [EventController::class, 'showEventDetails']);
 Route::post('/events/{id}/register', [EventController::class, 'registerForEvent'])->name('events.register');
 Route::get('/events/{id}/attendees', [EventController::class, 'listAttendees'])->middleware('auth');
 Route::get('/events/attendees/delete/{id}', [EventController::class, 'removeAttendee'])->middleware('auth');
+Route::get('/update-event/{id}', [EventController::class, 'showUpdateEventForm']);
+Route::post('/update-events', [EventController::class, 'updateEvent']);
 
 Route::get('/review', [ReviewController::class, 'showReviewForm']);
 Route::post('/submit-review', [ReviewController::class, 'submitReview'])->name('submit.review');

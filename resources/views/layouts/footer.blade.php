@@ -1,17 +1,21 @@
-<footer style="border-top:1px solid var(--border-dim); background:rgba(9,14,24,0.7); padding:2.5rem 1.5rem; margin-top:auto;">
-    <div style="max-width:1320px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:18px;">
+<footer class="mt-auto border-t border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl px-6 py-10 transition-colors duration-200">
+    <div class="max-w-[1320px] mx-auto flex flex-col items-center gap-[18px]">
 
         {{-- Accent bar --}}
-        <span style="width:36px; height:3px; border-radius:99px; background:var(--accent); opacity:0.45; display:block;"></span>
+        <span class="w-9 h-1 rounded-full bg-blue-600 dark:bg-blue-500 opacity-45 block"></span>
 
         {{-- Logo --}}
-        <a href="{{ route('home') }}" style="display:flex; align-items:center; gap:9px; text-decoration:none;">
-            <span style="width:28px; height:28px; border-radius:7px; background:var(--accent); display:flex; align-items:center; justify-content:center; font-family:var(--font-d); font-size:10px; font-weight:800; color:#fff;">AI</span>
-            <span style="font-family:var(--font-d); font-size:14px; font-weight:700; color:var(--text-2);">AI <span style="color:var(--accent);">Studio</span></span>
+        <a href="{{ route('home') }}" class="group flex items-center gap-2.5 no-underline">
+            <span class="w-7 h-7 rounded-md bg-blue-600 flex items-center justify-center font-display text-[10px] font-800 text-white tracking-wider transition-transform duration-200 group-hover:scale-105">
+                AI
+            </span>
+            <span class="font-display text-[14px] font-700 text-slate-700 dark:text-slate-300 transition-colors group-hover:text-black hover:dark:group-hover:text-white">
+                AI <span class="text-blue-600 dark:text-blue-500">Studio</span>
+            </span>
         </a>
 
         {{-- Social icons --}}
-        <div style="display:flex; gap:8px;">
+        <div class="flex gap-2">
             @foreach([
                 ['fa-github',    '#', 'GitHub'],
                 ['fa-codepen',   '#', 'CodePen'],
@@ -19,16 +23,14 @@
                 ['fa-instagram', '#', 'Instagram'],
             ] as [$icon, $href, $label])
             <a href="{{ $href }}" aria-label="{{ $label }}"
-               style="width:34px; height:34px; border-radius:50%; border:1px solid var(--border-mid); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center; color:var(--text-3); font-size:14px; text-decoration:none; transition:color .15s, background .15s, border-color .15s, transform .15s;"
-               onmouseover="this.style.color='var(--accent)'; this.style.background='var(--accent-dim)'; this.style.borderColor='rgba(249,115,22,0.3)'; this.style.transform='translateY(-2px)';"
-               onmouseout="this.style.color='var(--text-3)'; this.style.background='rgba(255,255,255,0.03)'; this.style.borderColor='var(--border-mid)'; this.style.transform='translateY(0)';">
+               class="w-8.5 h-8.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/30 flex items-center justify-center text-slate-400 dark:text-slate-500 text-[14px] no-underline transition-all duration-150 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:border-blue-200 dark:hover:border-blue-900/50 hover:-translate-y-0.5">
                 <i class="fa-brands {{ $icon }}"></i>
             </a>
             @endforeach
         </div>
 
         {{-- Footer nav --}}
-        <nav style="display:flex; gap:20px; flex-wrap:wrap; justify-content:center;">
+        <nav class="flex gap-5 flex-wrap justify-center" aria-label="Footer Navigation">
             @foreach([
                 ['Dashboard', route('dashboard')],
                 ['Galleries', url('/all-galleries')],
@@ -38,13 +40,13 @@
                 ['Inquiries', url('/inquiries')],
             ] as [$label, $url])
             <a href="{{ $url }}"
-               style="font-size:12.5px; color:var(--text-3); text-decoration:none; transition:color .15s;"
-               onmouseover="this.style.color='var(--text-1)'"
-               onmouseout="this.style.color='var(--text-3)'">{{ $label }}</a>
+               class="text-[12.5px] font-500 text-slate-500 dark:text-slate-400 no-underline transition-colors duration-150 hover:text-slate-900 dark:hover:text-slate-100">
+                {{ $label }}
+            </a>
             @endforeach
         </nav>
 
-        <p style="font-size:11.5px; color:var(--text-3);">© {{ date('Y') }} AI Studio. All rights reserved.</p>
+        <p class="text-[11.5px] text-slate-400 dark:text-slate-500 font-400">© {{ date('Y') }} AI Studio. All rights reserved.</p>
     </div>
 </footer>
 

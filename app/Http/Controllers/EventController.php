@@ -109,4 +109,52 @@ class EventController extends Controller
         $attendee->delete();
         return redirect()->back()->with('success', 'Attendee removed successfully!');
     }
+
+    public function showUpdateEventForm(Request $request)
+    {
+        $id = $request->id;
+        $event = Event::find($id);
+        return view('events/update-event', compact('event'));
+    }
+
+    public function updateEvent(Request $request)
+    {
+        // 1️⃣ Validate form inputs
+        $validated = $request->validate([
+            'id' => 'required|exists:events,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'date' => 'required|date',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'price' => 'required|numeric|min:0|max:99999',
+        ]);
+
+        $event = Event::findOrFail($validated['id']);
+
+        // 2️⃣ Handle image upload if a new image is provided
+        if ($request->hasFile('image')) {
+            // Delete old image if it exists
+            if ($event->image_path && file_exists(storage_path('app/public/events/' . $event->image_path))) {
+                unlink(storage_path('app/public/events/' . $event->image_path));
+            }
+
+            // Store new image
+            $image = $request->file('image');
+            $imageName = time() . '_' . uniqid() . '.' . $image->extension();
+            $image->storeAs('events', $imageName, 'public');
+            $event->image_path = $imageName; // Update with new filename
+        }
+
+        // 3️⃣ Update event details in the database
+        $event->name = $validated['name'];
+        $event->description = $validated['description'] ?? '';
+        $event->date = $validated['date'] ?? '';
+        $event->price = $validated['price'];
+        $event->save();
+
+        // 4️⃣ Redirect with success message
+        return redirect('/all-events')->with('success', 'Event updated successfully!');
+    }
+
+
 }

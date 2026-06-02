@@ -18,12 +18,21 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- Script to handle seamless theme initialization --}}
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
 </head>
-<body class="font-sans antialiased bg-[#0f1621] text-slate-100 min-h-screen">
+<body class="font-sans antialiased bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-200">
 
     @include('layouts.header')
 
-    <main class="min-h-[calc(100vh-120px)]">
+    <main class="flex-grow min-h-[calc(100vh-120px)] animate-in fade-in duration-200">
         {{ $slot }}
     </main>
 

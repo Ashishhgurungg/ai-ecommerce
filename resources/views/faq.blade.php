@@ -1,92 +1,122 @@
+@php $pageTitle = 'Frequently Asked Questions — AI Studio'; @endphp
 @include('headerfooter.boiler')
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
-    @include('headerfooter.header')
+@include('headerfooter.header')
 
-    <main class="flex-grow p-6 items-center flex flex-col">
-        <h1 class="text-3xl font-bold underline">FAQ</h1>
-        <p class="mt-4 text-center">Find answers to common questions about our AI services.</p>
+{{-- Alpine.js Interface Runtime Engine --}}
+<script src="https://unpkg.com/alpinejs" defer></script>
 
-        <!-- FAQ Section -->
-        <div class="mt-8 w-full max-w-3xl space-y-4">
+<main class="flex-grow max-w-4xl w-full mx-auto px-6 py-12 animate-in fade-in duration-300">
 
-            <!-- FAQ Item -->
-            <div class="bg-[#1e2230] p-4 rounded-lg shadow-md">
-                <button onclick="toggleFAQ(1)" class="w-full flex justify-between items-center text-left">
-                    <span class="font-semibold text-lg">What AI services do you provide?</span>
-                    <span id="icon-1">+</span>
-                </button>
-                <div id="faq-1" class="hidden mt-3 text-gray-300">
-                    We provide AI chatbot development, AI automation tools, customer support AI agents, 
-                    machine learning solutions, and AI integrations for websites and applications.
-                </div>
+    {{-- Section Architecture Header Block --}}
+    <header class="text-center max-w-xl mx-auto mb-12">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            System Documentation
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+            Frequently Asked Questions
+        </h1>
+        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
+            Review terminal variables, implementation operational windows, and core security protocols regarding our distributed AI integrations.
+        </p>
+    </header>
+
+    {{-- Interactive Accordion Stack Engine --}}
+    <div x-data="{ activeAccordion: null }" class="space-y-4">
+
+        {{-- FAQ Node 01 --}}
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-200">
+            <button @click="activeAccordion = (activeAccordion === 1 ? null : 1)" 
+                    class="w-full flex justify-between items-center px-5 py-4 text-left text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors focus:outline-none">
+                <span class="text-[15px] font-600 tracking-tight">What AI services do you provide?</span>
+                <span class="text-blue-600 dark:text-blue-400 font-display transition-transform duration-200 text-lg leading-none" 
+                      :class="activeAccordion === 1 ? 'rotate-45' : 'rotate-0'">+</span>
+            </button>
+            <div x-show="activeAccordion === 1" x-cloak x-collapse
+                 class="border-t border-slate-100 dark:border-slate-800/60 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <p class="text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    We engineer conversational interfaces, autonomous workflow orchestration layers, custom agent runtimes, and deep pipeline integrations using robust backend architectures like Laravel and FastAPI.
+                </p>
             </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-[#1e2230] p-4 rounded-lg shadow-md">
-                <button onclick="toggleFAQ(2)" class="w-full flex justify-between items-center text-left">
-                    <span class="font-semibold text-lg">How long does it take to develop an AI chatbot?</span>
-                    <span id="icon-2">+</span>
-                </button>
-                <div id="faq-2" class="hidden mt-3 text-gray-300">
-                    A standard AI chatbot typically takes 3–7 days depending on the complexity and integrations required.
-                </div>
-            </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-[#1e2230] p-4 rounded-lg shadow-md">
-                <button onclick="toggleFAQ(3)" class="w-full flex justify-between items-center text-left">
-                    <span class="font-semibold text-lg">Can your AI chatbot integrate with my website?</span>
-                    <span id="icon-3">+</span>
-                </button>
-                <div id="faq-3" class="hidden mt-3 text-gray-300">
-                    Yes! Our AI chatbots integrate smoothly with any website including Laravel, WordPress, React, 
-                    and any custom backend using REST APIs.
-                </div>
-            </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-[#1e2230] p-4 rounded-lg shadow-md">
-                <button onclick="toggleFAQ(4)" class="w-full flex justify-between items-center text-left">
-                    <span class="font-semibold text-lg">Do you offer support after delivery?</span>
-                    <span id="icon-4">+</span>
-                </button>
-                <div id="faq-4" class="hidden mt-3 text-gray-300">
-                    Yes, we offer maintenance, performance optimization, and periodic AI model updates 
-                    to keep your chatbot running perfectly.
-                </div>
-            </div>
-
-            <!-- FAQ Item -->
-            <div class="bg-[#1e2230] p-4 rounded-lg shadow-md">
-                <button onclick="toggleFAQ(5)" class="w-full flex justify-between items-center text-left">
-                    <span class="font-semibold text-lg">Is your AI secure and private?</span>
-                    <span id="icon-5">+</span>
-                </button>
-                <div id="faq-5" class="hidden mt-3 text-gray-300">
-                    Absolutely. Your data is encrypted, secured, and not used for training any external models. 
-                    Privacy is our top priority.
-                </div>
-            </div>
-
         </div>
-    </main>
 
-    @include('headerfooter.footer')
+        {{-- FAQ Node 02 --}}
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-200">
+            <button @click="activeAccordion = (activeAccordion === 2 ? null : 2)" 
+                    class="w-full flex justify-between items-center px-5 py-4 text-left text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors focus:outline-none">
+                <span class="text-[15px] font-600 tracking-tight">How long does it take to develop an AI chatbot?</span>
+                <span class="text-blue-600 dark:text-blue-400 font-display transition-transform duration-200 text-lg leading-none" 
+                      :class="activeAccordion === 2 ? 'rotate-45' : 'rotate-0'">+</span>
+            </button>
+            <div x-show="activeAccordion === 2" x-cloak x-collapse
+                 class="border-t border-slate-100 dark:border-slate-800/60 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <p class="text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    A basic full-stack configuration lifecycle spans roughly 3–7 operational updates. Complex instances utilizing contextual vector store layers (such as FAISS matrices) adapt based on training documentation profiles.
+                </p>
+            </div>
+        </div>
 
-    <script>
-        function toggleFAQ(id) {
-            const content = document.getElementById(`faq-${id}`);
-            const icon = document.getElementById(`icon-${id}`);
+        {{-- FAQ Node 03 --}}
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-200">
+            <button @click="activeAccordion = (activeAccordion === 3 ? null : 3)" 
+                    class="w-full flex justify-between items-center px-5 py-4 text-left text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors focus:outline-none">
+                <span class="text-[15px] font-600 tracking-tight">Can your AI chatbot integrate with my website?</span>
+                <span class="text-blue-600 dark:text-blue-400 font-display transition-transform duration-200 text-lg leading-none" 
+                      :class="activeAccordion === 3 ? 'rotate-45' : 'rotate-0'">+</span>
+            </button>
+            <div x-show="activeAccordion === 3" x-cloak x-collapse
+                 class="border-t border-slate-100 dark:border-slate-800/60 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <p class="text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Affirmative. Runtimes securely hook into existing architectures via standardized REST API endpoints, matching cleanly with Laravel views, dynamic state scripts, and secure application containers.
+                </p>
+            </div>
+        </div>
 
-            if (content.classList.contains("hidden")) {
-                content.classList.remove("hidden");
-                icon.innerText = "-";
-            } else {
-                content.classList.add("hidden");
-                icon.innerText = "+";
-            }
-        }
-    </script>
+        {{-- FAQ Node 04 --}}
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-200">
+            <button @click="activeAccordion = (activeAccordion === 4 ? null : 4)" 
+                    class="w-full flex justify-between items-center px-5 py-4 text-left text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors focus:outline-none">
+                <span class="text-[15px] font-600 tracking-tight">Do you offer support after delivery?</span>
+                <span class="text-blue-600 dark:text-blue-400 font-display transition-transform duration-200 text-lg leading-none" 
+                      :class="activeAccordion === 4 ? 'rotate-45' : 'rotate-0'">+</span>
+            </button>
+            <div x-show="activeAccordion === 4" x-cloak x-collapse
+                 class="border-t border-slate-100 dark:border-slate-800/60 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <p class="text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Yes, we provide ongoing maintenance iterations, index database optimization, and architectural review sweeps to keep context processing latency drops safely within performance parameters.
+                </p>
+            </div>
+        </div>
 
-</body>
-</html>
+        {{-- FAQ Node 05 --}}
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 rounded-2xl overflow-hidden transition-all duration-200">
+            <button @click="activeAccordion = (activeAccordion === 5 ? null : 5)" 
+                    class="w-full flex justify-between items-center px-5 py-4 text-left text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors focus:outline-none">
+                <span class="text-[15px] font-600 tracking-tight">Is your AI secure and private?</span>
+                <span class="text-blue-600 dark:text-blue-400 font-display transition-transform duration-200 text-lg leading-none" 
+                      :class="activeAccordion === 5 ? 'rotate-45' : 'rotate-0'">+</span>
+            </button>
+            <div x-show="activeAccordion === 5" x-cloak x-collapse
+                 class="border-t border-slate-100 dark:border-slate-800/60 px-5 py-4 bg-slate-50/50 dark:bg-slate-900/50">
+                <p class="text-[13.5px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                    Data integrity is handled under zero-leak network architectures. Your repository queries are completely encrypted at rest and in transit, isolating contextual validation weights away from public training pipelines.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    {{-- System Core Direct Support Line Hook --}}
+    <div class="text-center mt-12 bg-slate-50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl p-6">
+        <p class="text-[13px] text-slate-500 dark:text-slate-400">
+            Encountering variable parameters missing from this index documentation?
+        </p>
+        <div class="mt-3">
+            <a href="{{ url('/contact') }}" class="inline-flex items-center gap-1 text-[13px] font-600 text-blue-600 dark:text-blue-400 hover:underline">
+                Query the Technical Desk <span class="tracking-normal">&rarr;</span>
+            </a>
+        </div>
+    </div>
+
+</main>
+
+@include('headerfooter.footer')

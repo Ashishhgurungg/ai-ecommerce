@@ -1,84 +1,99 @@
+@php $pageTitle = 'Knowledge Base Articles — AI Studio'; @endphp
 @include('headerfooter.boiler')
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
-    @include('headerfooter.header')
+@include('headerfooter.header')
 
-    <!-- Alpine.js (Make sure it's loaded) -->
-    <script src="https://unpkg.com/alpinejs" defer></script>
+{{-- Alpine.js Interface Runtime Engine --}}
+<script src="https://unpkg.com/alpinejs" defer></script>
 
-    <main class="flex-grow p-6 items-center flex flex-col">
-        <h1 class="text-3xl font-bold underline">Articles Page</h1>
-        <p class="mt-4 text-center">Welcome to the Articles page.</p>
+<main class="flex-grow max-w-7xl w-full mx-auto px-6 py-12 animate-in fade-in duration-300">
 
-        <!-- Articles Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full max-w-6xl">
+    {{-- Section Architecture Header Block --}}
+    <header class="text-center max-w-xl mx-auto mb-12">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Knowledge Base
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+            Articles & Insights
+        </h1>
+        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
+            Deep dives into automated workflows, enterprise application deployment notes, and core systemic architecture logs.
+        </p>
+    </header>
 
-            @forelse ($articles ?? [] as $article)
-                <article class="bg-[#1a1f2b] p-4 rounded shadow hover:shadow-lg transition">
-                    
-                    @if ($article->image_path && file_exists(storage_path('app/public/articles/' . $article->image_path)))
-                        <img 
-                            src="{{ asset('storage/articles/' . $article->image_path) }}"
-                            alt="{{ $article->title }}"
-                            class="w-full h-40 object-cover rounded mb-4"
-                            width="200"
-                            height="200"
-                        >
-                    @else
-                        <img 
-                            src="{{ asset('images/default.jpg') }}"
-                            alt="No image available"
-                            class="w-full h-40 object-cover rounded mb-4"
-                            width="400"
-                            height="300"
-                        >
-                    @endif
+    {{-- Articles Grid Matrix --}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
 
-                    <h2 class="text-xl font-semibold mb-2">{{ $article->title }}</h2>
+        @forelse ($articles ?? [] as $article)
+            <article class="group bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                
+                <div>
+                    {{-- Article Preview Frame Asset --}}
+                    <div class="w-full h-44 rounded-xl overflow-hidden mb-4 relative bg-slate-100 dark:bg-slate-800/50">
+                        @if ($article->image_path && file_exists(storage_path('app/public/articles/' . $article->image_path)))
+                            <img 
+                                src="{{ asset('storage/articles/' . $article->image_path) }}"
+                                alt="{{ $article->title }}"
+                                class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                            >
+                        @else
+                            <img 
+                                src="{{ asset('images/default.jpg') }}"
+                                alt="No presentation visual allocated"
+                                class="w-full h-full object-cover opacity-80 mix-blend-normal dark:opacity-40"
+                            >
+                        @endif
+                    </div>
 
-                    <!-- 🔥 Alpine.js Description Toggle -->
-                    <div x-data="{ expanded: false }">
+                    {{-- Title String Header --}}
+                    <h2 class="text-[17px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                        {{ $article->title }}
+                    </h2>
 
-                        <p class="text-[#b0b8c1]">
-                            <!-- Short preview -->
+                    {{-- Dynamic Summary Context Handler Stack --}}
+                    <div x-data="{ expanded: false }" class="mt-2 mb-4">
+                        <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
                             <span x-show="!expanded">
-                                {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 150, '...') }}
+                                {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 130, '...') }}
                             </span>
 
-                            <!-- Full description -->
-                            <span x-show="expanded">
+                            <span x-show="expanded" x-cloak class="block prose prose-sm dark:prose-invert max-w-none text-[13px]">
                                 {!! $article->description !!}
                             </span>
                         </p>
 
-                        <!-- Read More / Read Less Button -->
-                        <!-- <button
-                            class="text-blue-400 mt-2 hover:underline"
+                        <button
+                            class="text-[12px] font-600 text-blue-600 dark:text-blue-400 mt-1 hover:underline focus:outline-none"
                             @click="expanded = !expanded"
-                            x-text="expanded ? 'Read Less' : 'Read More'">
-                        </button> -->
-
-                        <button class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-300">
-                            <a href="{{ url('/article/' . $article->id) }}">View Article</a>
+                            x-text="expanded ? 'Collapse Abstract' : 'Expand Abstract'">
                         </button>
-
                     </div>
-
-                </article>
-            @empty
-                <div class="col-span-3 text-center bg-yellow-100 text-yellow-800 px-4 py-3 rounded mb-6">
-                    {{ $message ?? 'No articles available.' }}
                 </div>
-            @endforelse
 
+                {{-- Action Pipeline Operational Module (Cleaned Link Semantics) --}}
+                <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2">
+                    <a href="{{ url('/article/' . $article->id) }}" 
+                       class="w-full flex items-center justify-center px-4 py-2 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[13px] font-600 rounded-xl transition-all shadow-sm">
+                        Read Full Manifest
+                    </a>
+                </div>
+
+            </article>
+        @empty
+            <div class="col-span-full text-center bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 p-6 rounded-xl font-500 text-[14px]">
+                <i class="fa-solid fa-newspaper block text-2xl mb-2 opacity-80"></i>
+                {{ $message ?? 'No technical articles indexable inside current directory nodes.' }}
+            </div>
+        @endforelse
+
+    </div>
+
+    {{-- System Core Target Pagination Interface --}}
+    @if(method_exists($articles, 'links'))
+        <div class="mt-12 flex justify-center">
+            {{ $articles->links() }}
         </div>
+    @endif
 
-        <!-- Pagination -->
-        <div class="mt-6">
-            {{ $articles->links('pagination::tailwind') }}
-        </div>
+</main>
 
-    </main>
-
-    @include('headerfooter.footer')
-</body>
-</html>
+@include('headerfooter.footer')

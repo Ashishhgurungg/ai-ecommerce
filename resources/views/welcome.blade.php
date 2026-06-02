@@ -1,160 +1,204 @@
+@php $pageTitle = 'Home — AI Studio'; @endphp
 @include('headerfooter.boiler')
-
-<body class="flex flex-col min-h-screen bg-[#0e121c] text-[#d6dfed]">
-
 @include('headerfooter.header')
 
-<main class="flex-grow">
+<main class="flex-grow animate-in fade-in duration-300">
 
-
-    {{-- ================= HERO SECTION WITH AI IMAGE BACKGROUND ================= --}}
-    <section class="relative w-full h-[450px] overflow-hidden">
-
-        {{-- AI Background Image --}}
+    {{-- ================= HERO SECTION WITH RADIAL OVERLAY ================= --}}
+    <section class="relative w-full h-[520px] flex items-center justify-center bg-slate-950 overflow-hidden">
+        
+        {{-- High-Fidelity Background Asset Media --}}
         <img 
             src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80"
-            class="absolute inset-0 w-full h-full object-cover opacity-50 z-0"
-            alt="AI Background"
+            class="absolute inset-0 w-full h-full object-cover opacity-35 select-none pointer-events-none scale-105"
+            alt="AI Architecture Context Grid"
         >
+        
+        {{-- Cinematic Radial Vignette Contrast Mask --}}
+        <div class="absolute inset-0 bg-radial-vignette from-transparent to-slate-950/90 pointer-events-none"></div>
 
-        {{-- Overlay Content --}}
-        <div class="absolute inset-0 z-10 flex flex-col items-center justify-center 
-            text-center px-4 animate-fadeIn">
-
-            <h1 class="text-5xl font-extrabold drop-shadow-xl text-white tracking-wide">
-                Welcome to AI solutions
+        {{-- Dynamic Interactive Landing Typography Row --}}
+        <div class="relative z-10 text-center px-6 max-w-3xl mx-auto flex flex-col items-center">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-[11px] font-700 tracking-wider text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-5">
+                Next-Gen Operational Frameworks
+            </span>
+            
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-800 text-white tracking-tight drop-shadow-sm max-w-2xl leading-[1.1]">
+                Welcome to AI Solutions
             </h1>
 
-            <p class="mt-4 text-lg text-gray-300 max-w-2xl">
-                Discover powerful tools, AI-driven insights, quality services, and more.
+            <p class="mt-4 text-[15px] sm:text-[17px] text-slate-300 dark:text-slate-400 leading-relaxed font-400 max-w-xl">
+                Discover powerful core orchestration tools, automated data models, and enterprise-grade infrastructure components.
             </p>
 
-            <div class="mt-6 flex gap-4">
-                <a href="/services" class="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 
-                    transition text-white font-semibold shadow-lg">
-                    View Services
+            <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+                <a href="{{ url('/services') }}" class="px-6 py-3 text-[14px] font-600 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg shadow-blue-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    View Services Matrix
                 </a>
-
-                <a href="/contact" class="px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 
-                    transition text-white font-semibold shadow-lg">
-                    Contact Us
+                <a href="{{ url('/contact') }}" class="px-6 py-3 text-[14px] font-600 bg-slate-900/80 hover:bg-slate-800 text-slate-200 rounded-xl border border-slate-800 hover:scale-[1.02] active:scale-[0.98] transition-all backdrop-blur-sm">
+                    Contact Engineers
                 </a>
             </div>
         </div>
-
     </section>
 
+    {{-- ================= METADATA STRUCTURAL FEATURE GRID ================= --}}
+    <section class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-12">
+            <h2 class="font-display text-[26px] sm:text-3xl font-700 text-slate-900 dark:text-slate-100 tracking-tight">
+                What We Offer
+            </h2>
+            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-2">
+                Engineered system components configured for deployment out of the box.
+            </p>
+        </div>
 
-    <style>
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn { animation: fadeIn 1.2s ease-out forwards; }
-    </style>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
 
-
-
-    {{-- ================= FEATURE CARDS ================= --}}
-    <section class="py-16 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-8 text-center">What We Offer</h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-            {{-- Card 1 --}}
-            <div class="bg-[#1b2233] border border-[#2a3145] p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80"
-                    alt="Services" class="w-full h-40 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-semibold mb-2">Our Services</h3>
-                <p class="text-[#b9c3d6] text-sm">
-                    High-quality, reliable services tailored to meet your needs.
-                </p>
+            {{-- Feature Card 1 --}}
+            <div class="group bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-44 rounded-xl overflow-hidden mb-4 relative bg-slate-100 dark:bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80"
+                             alt="Services Matrix Content" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        Core Services
+                    </h3>
+                    <p class="text-[13px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                        High-quality, reliable structural operational pipelines meticulously tailored to scale dynamically.
+                    </p>
+                </div>
+                <a href="{{ url('/services') }}" class="inline-flex items-center gap-1 text-[12px] font-600 text-blue-600 dark:text-blue-400 mt-4 group-hover:translate-x-0.5 transition-transform">
+                    Explore Matrix &rarr;
+                </a>
             </div>
 
-            {{-- Card 2 --}}
-            <div class="bg-[#1b2233] border border-[#2a3145] p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
-                    alt="Gallery" class="w-full h-40 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-semibold mb-2">Gallery</h3>
-                <p class="text-[#b9c3d6] text-sm">
-                    Browse our collection of images and recent project highlights.
-                </p>
+            {{-- Feature Card 2 --}}
+            <div class="group bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-44 rounded-xl overflow-hidden mb-4 relative bg-slate-100 dark:bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80"
+                             alt="Gallery Presentation Visuals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        Media Repositories
+                    </h3>
+                    <p class="text-[13px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                        Browse our automated data arrays, image assets, and recent modular engineering framework highlights.
+                    </p>
+                </div>
+                <a href="{{ url('/galleries') }}" class="inline-flex items-center gap-1 text-[12px] font-600 text-blue-600 dark:text-blue-400 mt-4 group-hover:translate-x-0.5 transition-transform">
+                    Launch Gallery &rarr;
+                </a>
             </div>
 
-            {{-- Card 3 --}}
-            <div class="bg-[#1b2233] border border-[#2a3145] p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300">
-                <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
-                    alt="Articles" class="w-full h-40 object-cover rounded-lg mb-4">
-                <h3 class="text-xl font-semibold mb-2">Articles</h3>
-                <p class="text-[#b9c3d6] text-sm">
-                    Read helpful articles, tips, and insights curated just for you.
-                </p>
+            {{-- Feature Card 3 --}}
+            <div class="group bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                <div>
+                    <div class="w-full h-44 rounded-xl overflow-hidden mb-4 relative bg-slate-100 dark:bg-slate-800">
+                        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=800&q=80"
+                             alt="Technical Documentation Feed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <h3 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        Knowledge Bases
+                    </h3>
+                    <p class="text-[13px] text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+                        Read architectural briefs, whitepapers, structural updates, and operational analytics logs.
+                    </p>
+                </div>
+                <a href="{{ url('/articles') }}" class="inline-flex items-center gap-1 text-[12px] font-600 text-blue-600 dark:text-blue-400 mt-4 group-hover:translate-x-0.5 transition-transform">
+                    Read Documentation &rarr;
+                </a>
             </div>
 
         </div>
     </section>
 
+    {{-- ================= CLIENT TESTIMONIAL CAROUSEL SLIDER ================= --}}
+    <section class="py-20 bg-slate-100 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/60">
+        <div class="text-center max-w-xl mx-auto mb-12 px-6">
+            <h2 class="font-display text-[26px] sm:text-3xl font-700 text-slate-900 dark:text-slate-100 tracking-tight">
+                Validated Node Feedback
+            </h2>
+            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1">
+                Real feedback pulled directly from production environment evaluations.
+            </p>
+        </div>
 
-
-    {{-- ================= TESTIMONIAL SLIDER ================= --}}
-    <section class="py-24 bg-[#111827]">
-        <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
-
-        <div class="swiper max-w-3xl mx-auto px-6">
-
+        {{-- Swiper System Housing Container --}}
+        <div class="swiper max-w-3xl mx-auto px-6 pb-12">
             <div class="swiper-wrapper">
 
-                {{-- Testimonial 1 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
-                    <p class="text-gray-300 text-lg mb-4">
-                        “Amazing service! Truly professional and very reliable.”
+                {{-- Slide Unit 1 --}}
+                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
+                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
+                    <p class="text-[15px] sm:text-[16px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
+                        Amazing service integration protocols! Truly professional response arrays and absolutely seamless delivery architectures.
                     </p>
-                    <h4 class="text-white font-semibold">— Emily Carter</h4>
+                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
+                    <h4 class="text-[13px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— Emily Carter</h4>
                 </div>
 
-                {{-- Testimonial 2 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
-                    <p class="text-gray-300 text-lg mb-4">
-                        “Their work exceeded my expectations. Highly recommended!”
+                {{-- Slide Unit 2 --}}
+                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
+                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
+                    <p class="text-[15px] sm:text-[16px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
+                        Their modular deliverables exceeded standard benchmarks completely. Highly recommended engineering framework patterns.
                     </p>
-                    <h4 class="text-white font-semibold">— John Michael</h4>
+                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
+                    <h4 class="text-[13px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— John Michael</h4>
                 </div>
 
-                {{-- Testimonial 3 --}}
-                <div class="swiper-slide bg-[#1b2233] border border-[#2a3145] p-8 py-20 rounded-xl shadow-md">
-                    <p class="text-gray-300 text-lg mb-4">
-                        “The support team is fantastic and always ready to help.”
+                {{-- Slide Unit 3 --}}
+                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
+                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
+                    <p class="text-[15px] sm:text-[16px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
+                        The core infrastructure support desk remains fully operational and hyper-responsive across deployment cycles.
                     </p>
-                    <h4 class="text-white font-semibold">— Sarah Williams</h4>
+                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
+                    <h4 class="text-[13px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— Sarah Williams</h4>
                 </div>
 
             </div>
 
-            <div class="swiper-pagination mt-6"></div>
-
+            {{-- Swiper Interactive Pagination Dots --}}
+            <div class="swiper-pagination !-bottom-1"></div>
         </div>
     </section>
 
     <script>
-        new Swiper('.swiper', {
-            loop: true,
-            autoplay: { delay: 3000 },
-            pagination: { el: '.swiper-pagination', clickable: true },
+        document.addEventListener('DOMContentLoaded', function () {
+            new Swiper('.swiper', {
+                loop: true,
+                spaceBetween: 24,
+                autoplay: { 
+                    delay: 4500,
+                    disableOnInteraction: false 
+                },
+                pagination: { 
+                    el: '.swiper-pagination', 
+                    clickable: true 
+                },
+            });
         });
     </script>
 
-
-
-    {{-- ================= CALL TO ACTION ================= --}}
-    <section class="mt-10 mb-20">
-        <div class="max-w-5xl mx-auto text-center bg-[#1d2433] border border-[#2a3145] rounded-2xl py-14 px-6 shadow-xl">
-            <h2 class="text-3xl font-bold">Ready to Get Started?</h2>
-            <p class="mt-3 text-[#b8c2d8] text-lg">
-                Contact us today and let’s work together on your next project.
+    {{-- ================= INTERACTIVE CALL TO ACTION CONTAINER ================= --}}
+    <section class="max-w-6xl mx-auto px-6 my-20">
+        <div class="relative bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800/80 rounded-2xl p-8 sm:p-12 text-center shadow-sm overflow-hidden">
+            <div class="absolute -right-16 -top-16 w-32 h-32 rounded-full bg-blue-600/5 blur-xl pointer-events-none"></div>
+            <div class="absolute -left-16 -bottom-16 w-32 h-32 rounded-full bg-blue-600/5 blur-xl pointer-events-none"></div>
+            
+            <h2 class="font-display text-[24px] sm:text-3xl font-700 text-slate-900 dark:text-slate-100 tracking-tight">
+                Ready to Initialize Deployment?
+            </h2>
+            <p class="mt-2 text-[13.5px] sm:text-[14.5px] text-slate-500 dark:text-slate-400 max-w-md mx-auto leading-relaxed">
+                Connect with an engineering specialist today to orchestrate your operational package targets.
             </p>
 
-            <a href="/contact" class="mt-6 inline-block px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl text-white font-semibold shadow-lg transition">
-                Contact Us
+            <a href="{{ url('/contact') }}" class="mt-6 inline-block px-7 py-3 bg-blue-600 hover:bg-blue-700 text-white text-[13.5px] font-600 rounded-xl shadow-md shadow-blue-600/10 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                Establish Connection
             </a>
         </div>
     </section>
@@ -162,8 +206,4 @@
 </main>
 
 @include('components.chatbot')
-
 @include('headerfooter.footer')
-
-</body>
-</html>
