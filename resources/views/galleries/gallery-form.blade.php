@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Add New Gallery</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Configure storage paths, context info, and populate mass media components.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Create a new gallery to organize and display your media assets.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -45,7 +45,7 @@
 
             {{-- Gallery Name Input Component --}}
             <div>
-                <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Title</label>
+                <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Title</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -57,7 +57,7 @@
 
             {{-- Gallery Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Description</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Description</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -68,14 +68,14 @@
 
             {{-- Dynamic Storage Engine Upload Section --}}
             <div>
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Gallery Images</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Gallery Images</label>
                 
                 {{-- Dropzone Layout UI Wrapper Trigger --}}
                 <div class="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-6 bg-slate-50/40 dark:bg-slate-900/10 flex flex-col items-center justify-center text-center transition-colors">
                     
                     <button type="button"
                             id="add-image-btn"
-                            class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[13px] font-600 rounded-xl shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer focus:outline-none transition-colors">
+                            class="inline-flex items-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[14px] font-600 rounded-xl shadow-sm hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer focus:outline-none transition-colors">
                         <svg class="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                         </svg>

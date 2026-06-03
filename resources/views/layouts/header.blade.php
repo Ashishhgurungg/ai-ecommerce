@@ -60,12 +60,8 @@
         
         {{-- Logo --}}
         <a href="{{ route('home') }}" class="group flex items-center gap-3 no-underline shrink-0">
-            <span class="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center font-display text-[12px] font-800 text-white tracking-wider shadow-[0_0_0_1px_rgba(37,99,235,0.2),0_4px_12px_rgba(37,99,235,0.24)] transition-all duration-200 group-hover:scale-105 group-hover:-rotate-3 group-hover:shadow-[0_0_0_1px_rgba(37,99,235,0.3),0_6px_16px_rgba(37,99,235,0.35)] shrink-0">
-                AI
-            </span>
-            <span class="font-display text-lg font-700 text-slate-900 dark:text-slate-100 tracking-tight transition-colors group-hover:text-black dark:group-hover:text-white">
-                AI <span class="text-blue-600 dark:text-blue-500">Studio</span>
-            </span>
+            <img src="{{ asset('images/my-logo.svg') }}" alt="AI Studio Logo" class="h-10 w-auto dark:transition-transform group-hover:scale-105" />
+            <span class="text-[22px] font-700 text-slate-900 dark:text-slate-100">AI Solutions</span>
         </a>
 
         <div class="flex items-center gap-3">
@@ -76,7 +72,7 @@
                         <span class="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-[11px] font-700 text-white shrink-0">
                             {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                         </span>
-                        <span class="text-[14px] font-500 text-slate-700 dark:text-slate-300 max-w-[120px] truncate">
+                        <span class="text-[16px] font-500 text-slate-700 dark:text-slate-300 max-w-[120px] truncate">
                             {{ Auth::user()->name }}
                         </span>
                         <svg class="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 transition-transform duration-200 [html.is-open_&]:rotate-180" id="user-chev" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,19 +81,19 @@
                     </button>
                     
                     {{-- Dropdown Menu --}}
-                    <div class="absolute right-0 top-[calc(100%+8px)] w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl shadow-slate-200/60 dark:shadow-none overflow-hidden opacity-0 -translate-y-1.5 pointer-events-none transition-all duration-150 [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="user-dd">
+                    <div class="absolute right-[calc(100%+8px)] top-0 w-56 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl shadow-slate-200/60 dark:shadow-none overflow-hidden opacity-0 -translate-y-1.5 pointer-events-none transition-all duration-150 [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="user-dd">
                         <div class="p-3.5 border-b border-slate-100 dark:border-slate-700/60 bg-slate-50/50 dark:bg-slate-800/50">
-                            <div class="text-[14px] font-600 text-slate-900 dark:text-slate-100">{{ Auth::user()->name }}</div>
-                            <div class="text-[12px] text-slate-400 dark:text-slate-400 mt-0.5 truncate">{{ Auth::user()->email }}</div>
+                            <div class="text-[16px] font-600 text-slate-900 dark:text-slate-100">{{ Auth::user()->name }}</div>
+                            <div class="text-[14px] text-slate-600 dark:text-slate-300 mt-0.5 truncate">{{ Auth::user()->email }}</div>
                         </div>
-                        <a href="{{ route('profile.edit') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-[14px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                        <a href="{{ route('profile.edit') }}" class="flex items-center gap-2.5 px-4 py-2.5 text-[16px] text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                             <svg class="w-4 h-4 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                             Profile settings
                         </a>
                         <div class="h-px bg-slate-100 dark:bg-slate-700 my-1"></div>
                         <form method="POST" action="{{ route('logout') }}" class="m-0">
                             @csrf
-                            <button type="submit" class="w-full flex items-center gap-2.5 px-4 py-2.5 text-[14px] text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50/60 dark:hover:bg-red-950/30 transition-colors text-left border-none bg-none cursor-pointer">
+                            <button type="submit" class="w-full flex items-center gap-2.5 px-4 py-2.5 text-[16px] text-slate-600 dark:text-slate-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50/60 dark:hover:bg-red-950/30 transition-colors text-left border-none bg-none cursor-pointer">
                                 <svg class="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
                                 Log out
                             </button>
@@ -125,7 +121,7 @@
                     @php
                         $active = isset($item['route']) ? request()->routeIs($item['route']) : request()->is($item['path']);
                     @endphp
-                    <a href="{{ $item['url'] }}" class="relative px-3.5 py-1.5 rounded-md text-[15px] font-500 transition-all tracking-tight {{ $active ? 'text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40 font-600' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 hover:dark:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/60' }}">
+                    <a href="{{ $item['url'] }}" class="relative px-3.5 py-1.5 rounded-md text-[18px] font-500 transition-all tracking-tight {{ $active ? 'text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/40 font-600' : 'text-slate-600 dark:text-slate-300 hover:text-slate-900 hover:dark:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/60' }}">
                         {{ $item['label'] }}
                         @if($active)
                             <span class="absolute bottom-[-13px] left-1/2 -translate-x-1/2 w-5 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-t-sm"></span>
@@ -136,17 +132,17 @@
 
             {{-- Create Action Dropdown Wrapper --}}
             <div class="relative">
-                <button class="flex items-center gap-1.5 px-4 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer" id="new-btn" aria-haspopup="true" aria-expanded="false">
+                <button class="flex items-center gap-1.5 px-4 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-[16px] font-600 shadow-sm transition-all hover:-translate-y-0.5 cursor-pointer" id="new-btn" aria-haspopup="true" aria-expanded="false">
                     <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/></svg>
                     New
-                    <svg class="w-3.5 h-3.5 text-blue-200/90 transition-transform duration-200" id="new-chev" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                    <svg class="w-3.5 h-3.5 text-blue-200/90 transition-transform duration-200" id="new-chev" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.4₁₄z" clip-rule="evenodd"/></svg>
                 </button>
                 
                 <div class="absolute right-0 top-[calc(100%+8px)] w-48 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl shadow-slate-200/60 dark:shadow-none overflow-hidden opacity-0 -translate-y-1.5 pointer-events-none transition-all duration-150 z-50 [&.is-open]:opacity-100 [&.is-open]:translate-y-0 [&.is-open]:pointer-events-auto" id="create-dd">
                     <div class="px-3.5 pt-3 pb-1 text-[10px] font-700 uppercase tracking-widest text-slate-400 dark:text-slate-500">Create new</div>
                     @foreach($navCreates as $item)
                         @php $active = request()->is($item['path']); @endphp
-                        <a href="{{ $item['url'] }}" class="flex items-center gap-2.5 px-3.5 py-2 text-[14px] font-500 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700/60 {{ $active ? 'text-blue-600 dark:text-blue-400 bg-blue-50/40 dark:bg-blue-950/20 hover:text-blue-600 dark:hover:text-blue-400' : '' }}">
+                        <a href="{{ $item['url'] }}" class="flex items-center gap-2.5 px-3.5 py-2 text-[16px] font-500 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-700/60 {{ $active ? 'text-blue-600 dark:text-blue-400 bg-blue-50/40 dark:bg-blue-950/20 hover:text-blue-600 dark:hover:text-blue-400' : '' }}">
                             <span class="w-6 h-6 rounded-md bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500 flex items-center justify-center shrink-0 {{ $active ? 'bg-blue-100/70 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400' : '' }}">
                                 @switch($item['label'])
                                     @case('Gallery')<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>@break

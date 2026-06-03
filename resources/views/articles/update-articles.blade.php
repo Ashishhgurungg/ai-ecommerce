@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Edit Article</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Modify text content, manage existing active assets, or stage alternative cover graphics.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Modify text content, manage existing active assets, or stage alternative cover graphics.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -47,7 +47,7 @@
 
             {{-- Article Title Input Component --}}
             <div>
-                <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Title</label>
+                <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Title</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -58,7 +58,7 @@
 
             {{-- Article Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Description</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Description</label>
                 <textarea id="description"
                           name="description"
                           rows="6"
@@ -69,7 +69,7 @@
             {{-- Active Storage Management Layer --}}
             @if ($article->image_path)
                 <div id="current-image-block" class="border-t border-slate-100 dark:border-slate-800/60 pt-5">
-                    <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Active Cover Image (On Server)</label>
+                    <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Active Cover Image (On Server)</label>
                     
                     <div class="flex items-center gap-4">
                         <div class="relative w-32 h-24 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-sm shrink-0">
@@ -79,13 +79,13 @@
                         <div class="space-y-1">
                             <button type="button"
                                     id="remove-image-btn"
-                                    class="px-3 py-1.5 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 border border-red-200/60 dark:border-red-900/40 text-red-700 dark:text-red-400 text-[12.5px] font-600 rounded-lg inline-flex items-center gap-1 cursor-pointer focus:outline-none transition-colors">
+                                    class="px-3 py-1.5 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 border border-red-200/60 dark:border-red-900/40 text-red-700 dark:text-red-400 text-[14px] font-600 rounded-lg inline-flex items-center gap-1 cursor-pointer focus:outline-none transition-colors">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                 </svg>
                                 Remove asset
                             </button>
-                            <p class="text-[12px] text-slate-400 dark:text-slate-500 block">Flag this image storage reference for deletion upon record update.</p>
+                            <p class="text-[14px] text-slate-400 dark:text-slate-500 block">Flag this image storage reference for deletion upon record update.</p>
                         </div>
                     </div>
                 </div>
@@ -93,14 +93,14 @@
 
             {{-- Replace / Stage New Media Element Component --}}
             <div class="border-t border-slate-100 dark:border-slate-800/60 pt-5">
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Upload Alternative Cover</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Upload Alternative Cover</label>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                     {{-- File Picker Trigger --}}
                     <div class="md:col-span-2">
                         <div class="relative flex items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-5 bg-slate-50/40 dark:bg-slate-900/10 text-center">
                             <label for="image" class="cursor-pointer flex flex-col items-center group">
-                                <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[12.5px] font-600 rounded-xl shadow-sm group-hover:bg-slate-50 dark:group-hover:bg-slate-800 transition-colors">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[14px] font-600 rounded-xl shadow-sm group-hover:bg-slate-50 dark:group-hover:bg-slate-800 transition-colors">
                                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
@@ -126,7 +126,7 @@
             {{-- Submission Component Actions Strip --}}
             <div class="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end">
                 <button type="submit"
-                        class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[13.5px] font-600 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer focus:outline-none">
+                        class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer focus:outline-none">
                     Update Article
                 </button>
             </div>

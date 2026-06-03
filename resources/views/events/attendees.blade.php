@@ -7,15 +7,15 @@
     <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">
-                Attendees Manifest
+                Attendees list
             </h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">
+            <p class="text-[16px] text-slate-600 dark:text-slate-300 mt-1.5">
                 Active registration roster for <span class="font-600 text-blue-600 dark:text-blue-400">{{ $event->name }}</span>.
             </p>
         </div>
         
         {{-- Total Count Badge --}}
-        <div class="inline-flex items-center px-3 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 rounded-full text-[12px] font-600 text-slate-600 dark:text-slate-400 self-start md:self-auto">
+        <div class="inline-flex items-center px-3 py-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700/60 rounded-full text-[16px] font-600 text-slate-600 dark:text-slate-400 self-start md:self-auto">
             Total Records: {{ $attendees->total() }}
         </div>
     </div>
@@ -43,7 +43,7 @@
         {{-- Responsive Registry Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             @foreach($attendees as $attendee)
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
                     <div>
                         {{-- Name Header & Identity --}}
                         <div class="flex items-start justify-between gap-2 mb-4">
@@ -54,14 +54,14 @@
                         </div>
 
                         {{-- Metadata Stack --}}
-                        <div class="space-y-3 border-t border-slate-100 dark:border-slate-800/60 pt-3.5 text-[13px]">
+                        <div class="space-y-3 border-t border-slate-100 dark:border-slate-800/60 pt-3.5 text-[15px]">
                             <div>
-                                <span class="block text-[11px] font-700 text-slate-400 dark:text-slate-500 uppercase tracking-wider">Email Address</span>
+                                <span class="block text-[12px] font-700 text-slate-500 dark:text-slate-400 uppercase tracking-wider">Email Address</span>
                                 <p class="text-slate-700 dark:text-slate-300 font-500 mt-0.5 break-all select-all">{{ $attendee->email }}</p>
                             </div>
                             
                             <div>
-                                <span class="block text-[11px] font-700 text-slate-400 dark:text-slate-500 uppercase tracking-wider">Contact Phone</span>
+                                <span class="block text-[12px] font-700 text-slate-500 dark:text-slate-400 uppercase tracking-wider">Contact Phone</span>
                                 <p class="text-slate-700 dark:text-slate-300 font-500 mt-0.5 select-all">{{ $attendee->phone ?? 'Not provided' }}</p>
                             </div>
                         </div>

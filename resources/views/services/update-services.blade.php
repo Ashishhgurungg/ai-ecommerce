@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Edit Service</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Modify operational attributes, recalibrate base package pricing steps, or alter target branding banners.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Modify operational attributes, recalibrate base package pricing steps, or alter target branding banners.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -48,7 +48,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                 {{-- Service Name Input Component --}}
                 <div class="md:col-span-3">
-                    <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Title</label>
+                    <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Title</label>
                     <input type="text"
                            id="name"
                            name="name"
@@ -59,7 +59,7 @@
 
                 {{-- Service Price Input Component --}}
                 <div class="md:col-span-1">
-                    <label for="price" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Rate (NPR)</label>
+                    <label for="price" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Rate (USD)</label>
                     <input type="number"
                            id="price"
                            name="price"
@@ -72,7 +72,7 @@
 
             {{-- Service Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Specifications & Scope</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Specifications & Scope</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -83,7 +83,7 @@
             {{-- Active Storage Management Layer --}}
             @if ($service->image_path)
                 <div id="current-image-block" class="border-t border-slate-100 dark:border-slate-800/60 pt-5">
-                    <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Active Service Image (On Server)</label>
+                    <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Active Service Image (On Server)</label>
                     
                     <div class="flex items-center gap-4">
                         <div class="relative w-32 h-24 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 shadow-sm shrink-0">
@@ -93,13 +93,13 @@
                         <div class="space-y-1">
                             <button type="button"
                                     id="remove-image-btn"
-                                    class="px-3 py-1.5 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 border border-red-200/60 dark:border-red-900/40 text-red-700 dark:text-red-400 text-[12.5px] font-600 rounded-lg inline-flex items-center gap-1 cursor-pointer focus:outline-none transition-colors">
+                                    class="px-3 py-1.5 bg-red-50 hover:bg-red-100 dark:bg-red-950/30 dark:hover:bg-red-900/40 border border-red-200/60 dark:border-red-900/40 text-red-700 dark:text-red-400 text-[16px] font-600 rounded-lg inline-flex items-center gap-1 cursor-pointer focus:outline-none transition-colors">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                                 </svg>
                                 Remove asset
                             </button>
-                            <p class="text-[12px] text-slate-400 dark:text-slate-500 block">Flag this image storage reference for deletion upon record update.</p>
+                            <p class="text-[16px] text-slate-500 dark:text-slate-400 block">Remove current image</p>
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
-                                    Choose Alternative Image
+                                    Update Image
                                 </span>
                                 <input type="file" id="image" name="image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer">
                             </label>

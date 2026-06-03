@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Services</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Configure, update, and manage your operational service listings.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Configure, update, and manage your operational service listings.</p>
         </div>
     </div>
 
@@ -34,6 +34,11 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         @forelse ($services ?? [] as $service)
+            @php
+                $avg = $service->average_rating;
+                $count = $service->rating_count;
+                $rated = $alreadyRatedForService[$service->id] ?? false;
+            @endphp
             <article class="group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-4 flex flex-col overflow-hidden transition-all duration-200 hover:border-slate-300 dark:hover:border-slate-700/80 hover:bg-slate-50/50 dark:hover:bg-slate-800/70 hover:-translate-y-0.5 shadow-sm">
 
                 {{-- Service Block Cover Image --}}
@@ -58,16 +63,31 @@
                     
                     {{-- Row Info Header --}}
                     <div class="flex items-start justify-between gap-2 mb-1.5">
-                        <h2 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                        <h2 class="text-[20px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                             {{ $service->name }}
                         </h2>
-                        <span class="text-[15px] font-700 text-purple-600 dark:text-purple-400 shrink-0 font-display">
+                        <span class="text-[15px] font-700 text-blue-600 dark:text-blue-400 shrink-0 font-display">
                             ${{ number_format($service->price, 2) }}
                         </span>
                     </div>
 
+                       {{-- Structural Evaluation Analytics Metrics (Ratings) --}}
+                    <div class="flex items-center gap-1.5 mt-1.5 mb-3.5" title="System Mean Evaluation Score: {{ number_format($avg, 1) }} / 5">
+                        <div class="flex items-center gap-0.5">
+                            @for ($i = 1; $i <= 5; $i++)
+                                <svg class="w-4 h-4 {{ $i <= $avg ? 'text-amber-400 fill-amber-400' : 'text-slate-200 dark:text-slate-700 fill-slate-200 dark:fill-slate-700' }}"
+                                     viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.072 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.073 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.073-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                </svg>
+                            @endfor
+                        </div>
+                        <span class="text-[12px] font-500 text-slate-400 dark:text-slate-500">
+                            {{ number_format($avg, 1) }} ({{ $count }})
+                        </span>
+                    </div>
+
                     {{-- Description Content Block via AlpineJS --}}
-                    <div x-data TYPE_UNSPECIFIED="{ expanded: false }" class="text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400 flex-grow mb-2">
+                    <div x-data="{ expanded: false }" class="text-[16px] leading-relaxed text-slate-600 dark:text-slate-300 flex-grow mb-2">
                         <div class="inline">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 130, '...') }}
@@ -79,16 +99,16 @@
 
                         @if(strlen(strip_tags($service->description)) > 130)
                             <button @click="expanded = !expanded" 
-                                    class="inline text-[13px] font-600 text-purple-600 dark:text-purple-400 hover:underline ml-1 cursor-pointer focus:outline-none"
+                                    class="inline text-[16px] font-600 text-blue-600 dark:text-blue-400 hover:underline ml-1 cursor-pointer focus:outline-none"
                                     x-text="expanded ? 'Read Less' : 'Read More'">
                             </button>
                         @endif
                     </div>
 
                     {{-- Card Action Operations Control --}}
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[13px] font-600">
+                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[16px] font-600">
                         <a href="{{ url('update-services/' . $service->id) }}" 
-                           class="inline-flex items-center gap-1 text-purple-600 dark:text-purple-400 no-underline hover:underline">
+                           class="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 no-underline hover:underline">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                             </svg>

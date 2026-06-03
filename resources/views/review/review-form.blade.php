@@ -6,13 +6,13 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-10">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            User Experience Log
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[15px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Share your experience and insights
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
             Write a Review
         </h1>
-        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
             Share your thoughts, workflow insights, and operational feedback directly with our engineering team.
         </p>
     </header>
@@ -52,23 +52,23 @@
             
             {{-- User Identity Input Node --}}
             <div>
-                <label for="name" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Your Name</label>
+                <label for="name" class="block text-[16px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Your Name</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}"
-                       class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="Alex Rivera" required>
+                       class="w-full px-3.5 py-2.5 text-[16px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="Alex Rivera" required>
             </div>
 
             {{-- Text Review Node Area --}}
             <div>
-                <label for="review" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Review Commentary</label>
+                <label for="review" class="block text-[16px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Feedback</label>
                 <textarea id="review" name="review" rows="6" 
-                          class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors resize-none" placeholder="Elaborate on interface deployment, feature preferences, or general operation summaries..." required>{{ old('review') }}</textarea>
+                          class="w-full px-3.5 py-2.5 text-[16px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors resize-none" placeholder="Elaborate on interface deployment, feature preferences, or general operation summaries..." required>{{ old('review') }}</textarea>
             </div>
 
             {{-- Submission Interactive Button --}}
             <div class="pt-2">
                 <button type="submit" 
-                        class="w-full flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 rounded-xl transition-all shadow-sm focus:outline-none">
-                    Transmit Evaluation Log
+                        class="w-full flex items-center justify-center px-5 py-5 bg-blue-600 hover:bg-blue-700 text-white text-[16px] font-600 rounded-xl transition-all shadow-sm focus:outline-none">
+                    Submit Review
                 </button>
             </div>
         </form>
@@ -76,4 +76,5 @@
     </div>
 </main>
 
+@include('components.chatbot')
 @include('headerfooter.footer')

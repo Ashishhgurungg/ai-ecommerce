@@ -6,12 +6,7 @@
 
         {{-- Logo --}}
         <a href="{{ route('home') }}" class="group flex items-center gap-2.5 no-underline">
-            <span class="w-7 h-7 rounded-md bg-blue-600 flex items-center justify-center font-display text-[10px] font-800 text-white tracking-wider transition-transform duration-200 group-hover:scale-105">
-                AI
-            </span>
-            <span class="font-display text-[14px] font-700 text-slate-700 dark:text-slate-300 transition-colors group-hover:text-black hover:dark:group-hover:text-white">
-                AI <span class="text-blue-600 dark:text-blue-500">Studio</span>
-            </span>
+            <img src="{{ asset('images/my-logo.svg') }}" alt="AI Studio Logo" class="h-10 w-auto dark:transition-transform group-hover:scale-105" />
         </a>
 
         {{-- Social icons --}}
@@ -23,7 +18,7 @@
                 ['fa-instagram', '#', 'Instagram'],
             ] as [$icon, $href, $label])
             <a href="{{ $href }}" aria-label="{{ $label }}"
-               class="w-8.5 h-8.5 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/30 flex items-center justify-center text-slate-400 dark:text-slate-500 text-[14px] no-underline transition-all duration-150 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:border-blue-200 dark:hover:border-blue-900/50 hover:-translate-y-0.5">
+               class="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/30 flex items-center justify-center text-slate-400 dark:text-slate-500 text-[14px] no-underline transition-all duration-150 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:border-blue-200 dark:hover:border-blue-900/50 hover:-translate-y-0.5">
                 <i class="fa-brands {{ $icon }}"></i>
             </a>
             @endforeach
@@ -40,13 +35,13 @@
                 ['Inquiries', url('/inquiries')],
             ] as [$label, $url])
             <a href="{{ $url }}"
-               class="text-[12.5px] font-500 text-slate-500 dark:text-slate-400 no-underline transition-colors duration-150 hover:text-slate-900 dark:hover:text-slate-100">
+               class="text-[14px] font-500 text-slate-600 dark:text-slate-300 no-underline transition-colors duration-150 hover:text-slate-900 dark:hover:text-slate-100">
                 {{ $label }}
             </a>
             @endforeach
         </nav>
 
-        <p class="text-[11.5px] text-slate-400 dark:text-slate-500 font-400">© {{ date('Y') }} AI Studio. All rights reserved.</p>
+        <p class="text-[12px] text-slate-500 dark:text-slate-400 font-400">© {{ date('Y') }} AI Solutions. All rights reserved.</p>
     </div>
 </footer>
 

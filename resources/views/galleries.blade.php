@@ -6,14 +6,14 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-12">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Systems Media
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[15px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Past Event and Media Archives
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
-            Media Repositories
+            Galleries & Media Repositories
         </h1>
-        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            Browse through image collections, historical system logs, and capture data frames from our past event nodes.
+        <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            Browse through image collections and capture data frames from our past events.
         </p>
     </header>
 
@@ -42,19 +42,19 @@
                     </div>
 
                     {{-- Title Anchor Module --}}
-                    <h2 class="text-[17px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                    <h2 class="text-[20px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                         {{ $gallery->title }}
                     </h2>
                 </div>
 
                 {{-- Action Pipeline Operational Module --}}
                 <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-5 flex items-center justify-between gap-2">
-                    <span class="text-[11px] font-600 text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                        {{ count($gallery->images ?? []) }} Asset Frameworks
+                    <span class="text-[16px] font-600 text-slate-600 dark:text-slate-300 uppercase tracking-wider">
+                        {{ count($gallery->images ?? []) }} Media Items
                     </span>
                     
                     <a href="{{ url('/galleries/' . $gallery->id) }}"
-                       class="inline-flex items-center justify-center px-4 py-2 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[12.5px] font-600 rounded-xl transition-all shadow-sm">
+                       class="inline-flex items-center justify-center px-4 py-4 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[16px] font-600 rounded-xl transition-all shadow-sm">
                         View Details
                     </a>
                 </div>
@@ -78,4 +78,5 @@
 
 </main>
 
+@include('components.chatbot')
 @include('headerfooter.footer')

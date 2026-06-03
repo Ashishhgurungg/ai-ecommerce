@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Add New Event</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Schedule upcoming events, configure ticket prices, and upload promotional display cards.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Schedule upcoming events, configure ticket prices, and upload promotional display cards.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -45,7 +45,7 @@
 
             {{-- Event Title Input Component --}}
             <div>
-                <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Event Name</label>
+                <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Event Name</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -58,7 +58,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {{-- Event Date Field --}}
                 <div>
-                    <label for="date" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Schedule Date</label>
+                    <label for="date" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Schedule Date</label>
                     <input type="date"
                            id="date"
                            name="date"
@@ -69,13 +69,13 @@
 
                 {{-- Event Entry Cost Field --}}
                 <div>
-                    <label for="price" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Ticket Rate (NPR)</label>
+                    <label for="price" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Ticket Rate (USD)</label>
                     <input type="number"
                            id="price"
                            name="price"
                            step="0.01"
                            value="{{ old('price') }}"
-                           placeholder="0.00"
+                           placeholder="0.00  for free events"
                            required
                            class="w-full text-[14px] px-3.5 py-2.5 bg-slate-50 dark:bg-slate-900/50 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-500 transition-all duration-150 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
                 </div>
@@ -83,7 +83,7 @@
 
             {{-- Event Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Event Details & Agenda</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Event Details & Agenda</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -93,7 +93,7 @@
 
             {{-- Promotional Media Input Component --}}
             <div>
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Promotional Event Poster</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Promotional Event Poster</label>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                     {{-- Dropzone Input Trigger Box --}}

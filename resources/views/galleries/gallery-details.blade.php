@@ -6,14 +6,14 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-12">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Media Asset Registry
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[14px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Media Collection
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
-            Gallery Details
+            Full Gallery View
         </h1>
-        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            Reviewing rendering output, visual asset nodes, and operational layout specifications.
+        <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            Explore the complete set of images curated within this collection.
         </p>
     </header>
 
@@ -46,24 +46,32 @@
 
         {{-- Meta Content Separator --}}
         <div class="border-t border-slate-100 dark:border-slate-800/60 pt-6">
-            <span class="block text-[11px] font-700 uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">
-                Gallery Title Parameter
+            <span class="block text-[14px] font-700 uppercase tracking-widest text-slate-600 dark:text-slate-300 mb-2">
+                Gallery Title
             </span>
-            <h2 class="font-display text-2xl font-800 text-slate-900 dark:text-white tracking-tight">
+            <h2 class="font-display text-2xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
                 {{ $gallery->title }}
             </h2>
             
-            <span class="block text-[11px] font-700 uppercase tracking-widest text-slate-400 dark:text-slate-500 mt-6 mb-2">
-                Context Description
+            <span class="block text-[14px] font-700 uppercase tracking-widest text-slate-600 dark:text-slate-300 mt-6 mb-2">
+                Description
             </span>
             <div class="prose prose-slate dark:prose-invert max-w-none">
-                <p class="text-[14px] text-slate-600 dark:text-slate-400 leading-relaxed font-normal">
+                <p class="text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                     {{ $gallery->description }}
                 </p>
             </div>
         </div>
 
     </div>
+
+    {{-- System Core Direct Support Line Hook --}}
+    <div class="mt-8 text-left">
+        <a href="{{ url()->previous() }}" class="inline-flex items-center gap-1.5 text-[16px] font-600 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+            <span class="tracking-normal">&larr;</span> Return to Gallery Directory
+        </a>
+    </div>
+
 </main>
 
 @include('headerfooter.footer')

@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Inquiries</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Review system inquiries, submission details, and client messages.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Review system inquiries, submission details, and client messages.</p>
         </div>
     </div>
 
@@ -46,13 +46,13 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                 </svg>
                             </div>
-                            <h3 class="text-[16px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            <h3 class="text-[20px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                 {{ $inquiry->subject }}
                             </h3>
                         </div>
 
                         {{-- Structured Information Grid --}}
-                        <div class="space-y-3.5 text-[13px] border-t border-slate-100 dark:border-slate-800/40 pt-3.5">
+                        <div class="space-y-3.5 text-[16px] border-t border-slate-100 dark:border-slate-800/40 pt-3.5">
                             <div class="grid grid-cols-3 gap-1">
                                 <span class="text-slate-400 dark:text-slate-500 font-500">Sender:</span>
                                 <span class="col-span-2 text-slate-700 dark:text-slate-300 font-600 truncate">{{ $inquiry->name }}</span>
@@ -85,7 +85,7 @@
                             {{-- Expandable Message Area --}}
                             <div class="border-t border-slate-100 dark:border-slate-800/40 pt-3 mt-1">
                                 <span class="text-slate-400 dark:text-slate-500 font-500 block mb-1">Message Detail:</span>
-                                <div class="text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/30 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800/20 text-[13px]">
+                                <div class="text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/30 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800/20 text-[14px]">
                                     <p :class="expandedMsg ? '' : 'line-clamp-2'">
                                         {{ $inquiry->message }}
                                     </p>
@@ -104,8 +104,8 @@
                             {{-- Expandable Job Context Requirements Area --}}
                             @if($inquiry->job_details)
                                 <div class="pt-1">
-                                    <span class="text-slate-400 dark:text-slate-500 font-500 block mb-1">Job Context Requirements:</span>
-                                    <div class="text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/30 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800/20 text-[13px]">
+                                    <span class="text-slate-400 dark:text-slate-500 font-500 block mb-1">Job Details:</span>
+                                    <div class="text-slate-600 dark:text-slate-400 leading-relaxed bg-slate-50 dark:bg-slate-900/30 rounded-xl p-2.5 border border-slate-100 dark:border-slate-800/20 text-[14px]">
                                         <p :class="expandedJob ? '' : 'line-clamp-2'">
                                             {{ $inquiry->job_details }}
                                         </p>
@@ -125,7 +125,7 @@
                     </div>
 
                     {{-- Card Action Footer Area --}}
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end text-[13px] font-600">
+                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end text-[16px] font-600">
                         <a href="{{ url('/inquiries-delete/'.$inquiry->id) }}" 
                            class="inline-flex items-center gap-1 text-slate-400 hover:text-red-600 dark:text-slate-500 dark:hover:text-red-400 no-underline hover:underline transition-colors"
                            onclick="return confirm('Are you sure you want to permanently clear this user submission?');">

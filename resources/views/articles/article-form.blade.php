@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Add New Article</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Draft new articles, attach media assets, and publish content to your public feed.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Draft new articles, attach media assets, and publish content to your public feed.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -45,7 +45,7 @@
 
             {{-- Article Title Input Component --}}
             <div>
-                <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Title</label>
+                <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Title</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -57,7 +57,7 @@
 
             {{-- Article Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Description</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Article Description</label>
                 <textarea id="description"
                           name="description"
                           rows="6"
@@ -68,14 +68,14 @@
 
             {{-- Article Featured Cover Media Input --}}
             <div>
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Featured Cover Image</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Featured Cover Image</label>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                     {{-- Input Trigger Box --}}
                     <div class="md:col-span-2">
                         <div class="relative flex items-center justify-center border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-5 bg-slate-50/40 dark:bg-slate-900/10 text-center">
                             <label for="image" class="cursor-pointer flex flex-col items-center group">
-                                <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[12.5px] font-600 rounded-xl shadow-sm group-hover:bg-slate-50 dark:group-hover:bg-slate-800 transition-colors">
+                                <span class="inline-flex items-center gap-2 px-3.5 py-2 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 text-[14px] font-600 rounded-xl shadow-sm group-hover:bg-slate-50 dark:group-hover:bg-slate-800 transition-colors">
                                     <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                                     </svg>
@@ -101,7 +101,7 @@
             {{-- Submission Actions Panel --}}
             <div class="mt-8 pt-5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end">
                 <button type="submit"
-                        class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[13.5px] font-600 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer focus:outline-none">
+                        class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 rounded-xl shadow-sm hover:shadow transition-all cursor-pointer focus:outline-none">
                     Add Article
                 </button>
             </div>

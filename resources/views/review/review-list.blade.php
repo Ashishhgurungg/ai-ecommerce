@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Reviews</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Monitor, moderate, and manage user testimonials and client ratings.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Monitor, moderate, and manage user testimonials and client ratings.</p>
         </div>
     </div>
 
@@ -30,8 +30,8 @@
         </div>
     @endif
 
-    {{-- Grid Layout Engine --}}
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{-- Grid Layout --}}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[18px]">
 
         @forelse ($reviews ?? [] as $review)
             <div x-data="{ expandedReview: false }" 
@@ -42,14 +42,14 @@
                     <div class="flex items-start justify-between gap-3 mb-3.5">
                         <div class="flex items-center gap-3">
                             {{-- Avatar Placeholder Node --}}
-                            <div class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 font-600 text-[13px] flex items-center justify-center uppercase select-none shrink-0">
+                            <div class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/50 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 font-600 text-[16px] flex items-center justify-center uppercase select-none shrink-0">
                                 {{ mb_substr($review->name, 0, 2) }}
                             </div>
                             <div>
-                                <h2 class="text-[15.5px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug">
+                                <h2 class="text-[18px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug">
                                     {{ $review->name }}
                                 </h2>
-                                <span class="text-[11.5px] text-slate-400 dark:text-slate-500 font-500">Verified User</span>
+                                <span class="text-[12px] text-slate-400 dark:text-slate-500 font-500">Verified User</span>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                     </div>
 
                     {{-- Review Expandable Content Block --}}
-                    <div class="text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/30 rounded-xl p-3 border border-slate-100 dark:border-slate-800/20">
+                    <div class="text-[18px] leading-relaxed text-slate-600 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/30 rounded-xl p-3 border border-slate-100 dark:border-slate-800/20">
                         <p :class="expandedReview ? '' : 'line-clamp-4'" class="whitespace-pre-line">
                             {{ $review->review }}
                         </p>
@@ -75,7 +75,7 @@
                 </div>
 
                 {{-- Card Action Operations Control --}}
-                <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end text-[13px] font-600">
+                <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end text-[16px] font-600">
                     <a href="{{ url('/delete-review/' . $review->id) }}" 
                        class="inline-flex items-center gap-1 text-slate-400 hover:text-red-600 dark:text-slate-500 dark:hover:text-red-400 no-underline hover:underline transition-colors"
                        onclick="return confirm('Are you sure you want to delete this client testimonial?');">

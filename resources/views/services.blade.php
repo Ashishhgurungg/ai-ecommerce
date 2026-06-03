@@ -38,10 +38,13 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-12">
-        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[15px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
             Services Catalog
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
+            Our AI Services & Solutions
         </h1>
-        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
             Explore our automated functional arrays. For complex technical specifications, please 
             <a href="{{ url('/contact') }}" class="text-blue-600 dark:text-blue-400 hover:underline font-600">contact our engineering desk</a>.
         </p>
@@ -73,7 +76,7 @@
                     </div>
 
                     {{-- Title Anchor Module --}}
-                    <h2 class="text-[17px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h2 class="text-[20px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {{ $service->name }}
                     </h2>
 
@@ -94,11 +97,11 @@
 
                     {{-- Dynamic Summary Text Controller --}}
                     <div x-data="{ expanded: false }" class="mb-4">
-                        <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                        <p class="text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($service->description), 110, '...') }}
                             </span>
-                            <span x-show="expanded" x-cloak class="block prose prose-sm dark:prose-invert max-w-none text-[13px]">
+                            <span x-show="expanded" x-cloak class="block prose prose-sm dark:prose-invert max-w-none text-[16px]">
                                 {!! $service->description !!}
                             </span>
                         </p>
@@ -112,7 +115,7 @@
                 {{-- Functional Value Assignment Grid Block --}}
                 <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2">
                     <div class="flex items-baseline justify-between gap-2">
-                        <span class="text-[11.5px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500">Rate Package</span>
+                        <span class="text-[11.5px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300">Rate Package</span>
                         <div class="text-[16px] font-700 text-slate-900 dark:text-slate-100">
                             ${{ number_format($service->price, 2) }}
                         </div>
@@ -177,4 +180,5 @@
 
 </main>
 
+@include('components.chatbot')
 @include('headerfooter.footer')

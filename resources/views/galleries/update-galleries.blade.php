@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Edit Gallery</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Modify collection attributes, manage existing assets, or batch append images.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Modify collection attributes, manage existing assets, or batch append images.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -47,7 +47,7 @@
 
             {{-- Gallery Name Input Component --}}
             <div>
-                <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Title</label>
+                <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Title</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -58,7 +58,7 @@
 
             {{-- Gallery Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Description</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Gallery Description</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -70,14 +70,14 @@
             @if (!empty($gallery->images) && count($gallery->images))
                 <div id="current-image-block" class="border-t border-slate-100 dark:border-slate-800/60 pt-5">
                     <div class="flex items-center justify-between gap-4 mb-3">
-                        <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300">Active Gallery Images (On Server)</label>
+                        <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300">Active Gallery Images (On Server)</label>
                         <button type="button"
                                 id="remove-all-btn"
-                                class="text-[12px] font-600 text-red-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 flex items-center gap-1 cursor-pointer focus:outline-none">
+                                class="text-[14px] font-600 text-red-500 hover:text-red-600 dark:text-slate-400 dark:hover:text-red-400 flex items-center gap-1 cursor-pointer focus:outline-none">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
                             </svg>
-                            Purge existing items
+                            Delete existing images
                         </button>
                     </div>
 
@@ -93,7 +93,7 @@
 
             {{-- Dynamic Staging Media Uploader Dropzone --}}
             <div class="border-t border-slate-100 dark:border-slate-800/60 pt-5">
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Stage New Media Assets</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Stage New Media Assets</label>
                 
                 <div class="border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-6 bg-slate-50/40 dark:bg-slate-900/10 flex flex-col items-center justify-center text-center">
                     <button type="button"
@@ -104,7 +104,7 @@
                         </svg>
                         Choose Image Files
                     </button>
-                    <p class="text-[12px] text-slate-400 dark:text-slate-500 mt-2">Append new items seamlessly to this storage record context.</p>
+                    <p class="text-[14px] text-slate-500 dark:text-slate-400 mt-2">Append Images one by one here</p>
                 </div>
 
                 {{-- Hidden Core Nodes --}}

@@ -6,8 +6,8 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-10">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Event Access Pipeline
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[14px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Registration Form
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
             Register for Event
@@ -54,8 +54,8 @@
                     </svg>
                 </div>
                 <div>
-                    <span class="block text-[10px] font-700 uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-0.5">Selected Core Module</span>
-                    <h2 class="text-[15px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
+                    <span class="block text-[12px] font-700 uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-0.5">Event</span>
+                    <h2 class="text-[20px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
                         {{ $event->name }}
                     </h2>
                 </div>
@@ -67,28 +67,28 @@
                 
                 {{-- User Identity Input Node --}}
                 <div>
-                    <label for="name" class="block text-[11px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Full Name</label>
+                    <label for="name" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Full Name</label>
                     <input type="text" id="name" name="name" value="{{ old('name') }}" required
                            class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="Jordan Vance">
                 </div>
 
                 {{-- User Contact Electronic Routing Node --}}
                 <div>
-                    <label for="email" class="block text-[11px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Email Address</label>
+                    <label for="email" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Email Address</label>
                     <input type="email" id="email" name="email" value="{{ old('email') }}" required
                            class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="jordan@domain.com">
                 </div>
 
                 {{-- User Contact Mobile Routing Node --}}
                 <div>
-                    <label for="phone" class="block text-[11px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Phone Connection</label>
+                    <label for="phone" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-1.5">Phone</label>
                     <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required
-                           class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="+1 (555) 019-2834">
+                           class="w-full px-3.5 py-2.5 text-[14px] bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 rounded-xl focus:outline-none focus:border-blue-600 dark:focus:border-blue-400 transition-colors" placeholder="+977 9841-234567">
                 </div>
 
                 {{-- Interaction Submission Vector --}}
                 <div class="pt-2">
-                    <button type="submit" class="w-full flex items-center justify-center px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 rounded-xl transition-all shadow-sm focus:outline-none">
+                    <button type="submit" class="w-full flex items-center justify-center px-5 py-4 bg-blue-600 hover:bg-blue-700 text-white text-[14px] font-600 rounded-xl transition-all shadow-sm focus:outline-none">
                         Commit Slot Reservation
                     </button>
                 </div>
@@ -97,7 +97,7 @@
 
         {{-- Direct Access Directory Reverse Navigation Hook --}}
         <div class="mt-6 text-center">
-            <a href="{{ url()->previous() }}" class="inline-flex items-center gap-1.5 text-[12.5px] font-600 text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-slate-300 transition-colors">
+            <a href="{{ url()->previous() }}" class="inline-flex items-center gap-1.5 text-[16px] font-600 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
                 &larr; Cancel and Return to Index
             </a>
         </div>

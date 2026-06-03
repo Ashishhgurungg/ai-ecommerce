@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Galleries</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Manage and organize your custom layout media blocks.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Manage and organize your media collections.</p>
         </div>
     </div>
 
@@ -59,12 +59,12 @@
 
                 {{-- Context Stack --}}
                 <div class="flex-grow flex flex-col px-1">
-                    <h2 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h2 class="text-[20px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {{ $gallery->title }}
                     </h2>
 
                     {{-- Description Blocks via AlpineJS --}}
-                    <div x-data="{ expanded: false }" class="text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400 flex-grow">
+                    <div x-data="{ expanded: false }" class="text-[16px] leading-relaxed text-slate-600 dark:text-slate-300 flex-grow">
                         <p class="inline">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit($gallery->description, 110) }}
@@ -84,7 +84,7 @@
                     </div>
 
                     {{-- Card Level Controls --}}
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[13px] font-600">
+                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[16px] font-600">
                         <a href="{{ url('update-galleries/' . $gallery->id) }}"
                            class="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 no-underline hover:underline">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

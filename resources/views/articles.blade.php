@@ -1,4 +1,4 @@
-@php $pageTitle = 'Knowledge Base Articles — AI Studio'; @endphp
+@php $pageTitle = 'Blogs & Articles — AI Studio'; @endphp
 @include('headerfooter.boiler')
 @include('headerfooter.header')
 
@@ -9,14 +9,14 @@
 
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-12">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Knowledge Base
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[15px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Articles Catalog
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
-            Articles & Insights
+            Blogs & Articles
         </h1>
-        <p class="mt-2 text-[14px] text-slate-500 dark:text-slate-400 leading-relaxed">
-            Deep dives into automated workflows, enterprise application deployment notes, and core systemic architecture logs.
+        <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
+            Dive into our comprehensive collection of blogs and articles, where we explore the latest trends, insights, and innovations in the world of artificial intelligence. Whether you're a seasoned AI practitioner or just starting your journey, our curated content is designed to inform, inspire, and empower you with knowledge. Stay updated with expert analyses, practical guides, and thought-provoking discussions that will help you navigate the ever-evolving landscape of AI technology.
         </p>
     </header>
 
@@ -45,35 +45,35 @@
                     </div>
 
                     {{-- Title String Header --}}
-                    <h2 class="text-[17px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                    <h2 class="text-[20px] font-700 text-slate-900 dark:text-slate-100 tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
                         {{ $article->title }}
                     </h2>
 
                     {{-- Dynamic Summary Context Handler Stack --}}
                     <div x-data="{ expanded: false }" class="mt-2 mb-4">
-                        <p class="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
+                        <p class="text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 130, '...') }}
                             </span>
 
-                            <span x-show="expanded" x-cloak class="block prose prose-sm dark:prose-invert max-w-none text-[13px]">
+                            <span x-show="expanded" x-cloak class="block prose prose-sm dark:prose-invert max-w-none text-[16px]">
                                 {!! $article->description !!}
                             </span>
                         </p>
 
-                        <button
-                            class="text-[12px] font-600 text-blue-600 dark:text-blue-400 mt-1 hover:underline focus:outline-none"
+                        <!-- <button
+                            class="text-[16px] font-600 text-blue-600 dark:text-blue-400 mt-1 hover:underline focus:outline-none"
                             @click="expanded = !expanded"
                             x-text="expanded ? 'Collapse Abstract' : 'Expand Abstract'">
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
                 {{-- Action Pipeline Operational Module (Cleaned Link Semantics) --}}
                 <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2">
                     <a href="{{ url('/article/' . $article->id) }}" 
-                       class="w-full flex items-center justify-center px-4 py-2 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[13px] font-600 rounded-xl transition-all shadow-sm">
-                        Read Full Manifest
+                       class="w-full flex items-center justify-center px-4 py-4 bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-[16px] font-600 rounded-xl transition-all shadow-sm">
+                        Read Full Article
                     </a>
                 </div>
 
@@ -96,4 +96,5 @@
 
 </main>
 
+@include('components.chatbot')
 @include('headerfooter.footer')

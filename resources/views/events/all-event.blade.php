@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Events</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Schedule, monitor registrations, and manage operational community events.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Schedule, monitor registrations, and manage operational community events.</p>
         </div>
     </div>
 
@@ -58,16 +58,16 @@
                     
                     {{-- Row Info Header --}}
                     <div class="flex items-start justify-between gap-2 mb-1.5">
-                        <h2 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                        <h2 class="text-[20px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                             {{ $event->name }}
                         </h2>
-                        <span class="text-[14px] font-700 text-emerald-600 dark:text-emerald-400 shrink-0 font-display">
+                        <span class="text-[14px] font-700 text-blue-600 dark:text-blue-400 shrink-0 font-display">
                             {{ (float)$event->price > 0 ? '$' . number_format($event->price, 2) : 'Free' }}
                         </span>
                     </div>
 
                     {{-- Event Meta Badge Strip --}}
-                    <div class="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 text-[12.5px] font-500 mb-2.5">
+                    <div class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 text-[14px] font-500 mb-2.5">
                         <svg class="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
@@ -75,7 +75,7 @@
                     </div>
 
                     {{-- Description Content Block via AlpineJS --}}
-                    <div x-data="{ expanded: false }" class="text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400 flex-grow mb-2">
+                    <div x-data="{ expanded: false }" class="text-[16px] leading-relaxed text-slate-500 dark:text-slate-400 flex-grow mb-2">
                         <div class="inline">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($event->description), 130, '...') }}
@@ -87,18 +87,18 @@
 
                         @if(strlen(strip_tags($event->description)) > 130)
                             <button @click="expanded = !expanded" 
-                                    class="inline text-[13px] font-600 text-emerald-600 dark:text-emerald-400 hover:underline ml-1 cursor-pointer focus:outline-none"
+                                    class="inline text-[13px] font-600 text-blue-600 dark:text-blue-400 hover:underline ml-1 cursor-pointer focus:outline-none"
                                     x-text="expanded ? 'Read Less' : 'Read More'">
                             </button>
                         @endif
                     </div>
 
                     {{-- Card Action Operations Control --}}
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[13px] font-600 gap-2 flex-wrap">
+                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[16px] font-600 gap-2 flex-wrap">
                         
                         <div class="flex items-center gap-3.5">
                             <a href="{{ url('update-event/' . $event->id) }}" 
-                               class="inline-flex items-center gap-1 text-emerald-600 dark:text-emerald-400 no-underline hover:underline">
+                               class="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 no-underline hover:underline">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                                 </svg>

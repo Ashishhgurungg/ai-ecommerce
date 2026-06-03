@@ -24,15 +24,16 @@ class ReviewController extends Controller
         return redirect('/review')->with('success', 'Thank you for your feedback!');
     }
 
-    public function destroyReview(Review $review)
+    public function destroyReview($id)
     {
+        $review = Review::findOrFail($id);
         $review->delete();
         return redirect('/reviews')->with('success', 'Review deleted successfully.');
     }
 
     public function listReviews()
     {
-        $reviews = Review::orderBy('created_at', 'desc')->paginate(4);
+        $reviews = Review::orderBy('created_at', 'desc')->paginate(6);
         return view('review/review-list', compact('reviews'));
     }
 }

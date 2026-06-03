@@ -6,7 +6,7 @@
     {{-- Page Heading Row --}}
     <div class="mb-8">
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Add New Service</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Register a new service utility entry, configure pricing steps, and link consumer-facing graphics.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Register a new service utility, configure pricing, and add graphics.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -46,7 +46,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                 {{-- Service Name Input Component --}}
                 <div class="md:col-span-3">
-                    <label for="name" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Title</label>
+                    <label for="name" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Title</label>
                     <input type="text"
                            id="name"
                            name="name"
@@ -58,7 +58,7 @@
 
                 {{-- Service Price Input Component --}}
                 <div class="md:col-span-1">
-                    <label for="price" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Rate (USD)</label>
+                    <label for="price" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Rate (USD)</label>
                     <div class="relative">
                         <input type="number"
                                id="price"
@@ -74,7 +74,7 @@
 
             {{-- Service Description Component --}}
             <div>
-                <label for="description" class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Specifications & Scope</label>
+                <label for="description" class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-1.5">Service Specifications & Scope</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -84,7 +84,7 @@
 
             {{-- Service Branding Display Illustration Input --}}
             <div>
-                <label class="block text-[13px] font-600 text-slate-700 dark:text-slate-300 mb-2">Service Context Vector or Banner</label>
+                <label class="block text-[16px] font-600 text-slate-700 dark:text-slate-300 mb-2">Service Context Image</label>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                     {{-- File Picker Trigger Dropzone Area --}}

@@ -7,7 +7,7 @@
     <div class="flex items-end justify-between flex-wrap gap-4 mb-8">
         <div>
             <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Articles</h1>
-            <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Manage, review, and organize published content blocks.</p>
+            <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Review and Update published contents</p>
         </div>
     </div>
 
@@ -55,12 +55,12 @@
 
                 {{-- Context Content Stack --}}
                 <div class="flex-grow flex flex-col px-1">
-                    <h2 class="text-[17px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h2 class="text-[20px] font-600 text-slate-900 dark:text-slate-100 tracking-tight leading-snug mb-1.5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                         {{ $article->title }}
                     </h2>
 
                     {{-- Description Blocks via AlpineJS --}}
-                    <div x-data="{ expanded: false }" class="text-[13.5px] leading-relaxed text-slate-500 dark:text-slate-400 flex-grow mb-2">
+                    <div x-data="{ expanded: false }" class="text-[16px] leading-relaxed text-slate-600 dark:text-slate-300 flex-grow mb-2">
                         <div class="inline">
                             <span x-show="!expanded">
                                 {{ \Illuminate\Support\Str::limit(strip_tags($article->description), 130, '...') }}
@@ -72,14 +72,14 @@
 
                         @if(strlen(strip_tags($article->description)) > 130)
                             <button @click="expanded = !expanded" 
-                                    class="inline text-[13px] font-600 text-blue-600 dark:text-blue-400 hover:underline ml-1 cursor-pointer focus:outline-none"
+                                    class="inline text-[14px] font-600 text-blue-600 dark:text-blue-400 hover:underline ml-1 cursor-pointer focus:outline-none"
                                     x-text="expanded ? 'Read Less' : 'Read More'">
                             </button>
                         @endif
                     </div>
 
                     {{-- Card Level Action Controls --}}
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[13px] font-600">
+                    <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between text-[16px] font-600">
                         <a href="{{ url('update-articles/' . $article->id) }}" 
                            class="inline-flex items-center gap-1 text-blue-600 dark:text-blue-400 no-underline hover:underline">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,7 +89,7 @@
                         </a>
 
                         <a href="{{ url('/delete-article/' . $article->id) }}" 
-                           class="inline-flex items-center gap-1 text-slate-400 hover:text-red-600 dark:text-slate-500 dark:hover:text-red-400 no-underline hover:underline transition-colors"
+                           class="inline-flex items-center gap-1 text-slate-500 hover:text-red-600 dark:text-slate-500 dark:hover:text-red-400 no-underline hover:underline transition-colors"
                            onclick="return confirm('Are you sure you want to permanently remove this article?');">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>

@@ -1,7 +1,7 @@
 <div id="chatbotContainer" class="fixed bottom-6 right-6 z-50">
     
     <button id="openChatbot" 
-        class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-full shadow-lg flex items-center gap-2 transition transform hover:scale-105">
+        class="bg-blue-600 hover:bg-blue-700 text-[24px] text-white px-6 py-4 rounded-full shadow-lg flex items-center gap-2 transition transform hover:scale-105">
         💬 Chat
     </button>
 

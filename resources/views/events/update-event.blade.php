@@ -5,11 +5,11 @@
 
     {{-- Page Heading Row --}}
     <div class="mb-8">
-        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Event Management Pipeline
-        </span>
+        <!-- <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[14px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
+            Event Update Form
+        </span> -->
         <h1 class="font-display text-[26px] font-700 text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">Edit Event</h1>
-        <p class="text-[13.5px] text-slate-500 dark:text-slate-400 mt-1.5">Modify scheduled dates, update ticket rates, or change your promotional poster graphics.</p>
+        <p class="text-[15px] text-slate-600 dark:text-slate-300 mt-1.5">Modify scheduled dates, update ticket rates, or change your promotional poster graphics.</p>
     </div>
 
     {{-- Form Context Workspace Card --}}
@@ -51,7 +51,7 @@
 
             {{-- Event Title Input Component --}}
             <div>
-                <label for="name" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Event Name</label>
+                <label for="name" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Event Name</label>
                 <input type="text"
                        id="name"
                        name="name"
@@ -63,24 +63,24 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {{-- Event Date Field --}}
                 <div>
-                    <label for="date" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Schedule Date</label>
+                    <label for="date" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Schedule Date</label>
                     <input type="date"
                            id="date"
                            name="date"
-                           value="{{ old('date', $event->date ? \Carbon\Carbon::parse($event->date)->format('Y-m-b') : $event->date) }}"
+                           value="{{ old('date', $event->date ? \Carbon\Carbon::parse($event->date)->format('Y-m-d') : $event->date) }}"
                            required
                            class="w-full text-[14px] px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/40 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-blue-500 transition-colors dark:[color-scheme:dark]">
                 </div>
 
                 {{-- Event Entry Cost Field --}}
                 <div>
-                    <label for="price" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Ticket Rate (NPR)</label>
+                    <label for="price" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Ticket Rate (USD)</label>
                     <input type="number"
                            id="price"
                            name="price"
                            step="0.01"
                            value="{{ old('price', $event->price) }}"
-                           placeholder="0.00"
+                           placeholder="0.00 for free events"
                            required
                            class="w-full text-[14px] px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/40 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-blue-500 transition-colors [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none">
                 </div>
@@ -88,7 +88,7 @@
 
             {{-- Event Description Component --}}
             <div>
-                <label for="description" class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-1.5">Event Details & Agenda</label>
+                <label for="description" class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-1.5">Event Details & Agenda</label>
                 <textarea id="description"
                           name="description"
                           rows="4"
@@ -97,7 +97,7 @@
 
             {{-- Promotional Media Input Component --}}
             <div>
-                <label class="block text-[12px] font-700 uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">Promotional Event Poster</label>
+                <label class="block text-[14px] font-700 uppercase tracking-wider text-slate-600 dark:text-slate-300 mb-2">Promotional Event Poster</label>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
                     {{-- Dropzone Input Trigger Box --}}
