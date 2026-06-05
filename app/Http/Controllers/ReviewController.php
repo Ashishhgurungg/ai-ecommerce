@@ -36,4 +36,19 @@ class ReviewController extends Controller
         $reviews = Review::orderBy('created_at', 'desc')->paginate(6);
         return view('review/review-list', compact('reviews'));
     }
+
+    public function updateStatus(Request $request, $id)
+{
+    $request->validate([
+        'status' => 'required|in:0,1',
+    ]);
+
+    $review = Review::findOrFail($id);
+
+    $review->update([
+        'status' => $request->status,
+    ]);
+
+    return back()->with('success', 'Review status updated.');
+}
 }

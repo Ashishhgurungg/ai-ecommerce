@@ -9,6 +9,7 @@ use App\Models\Gallery;
 use App\Models\Event;
 use App\Models\EventRegistration;
 use App\Models\Contact;
+use App\Models\Review;
 
 class HomeController extends Controller
 {
@@ -72,6 +73,14 @@ class HomeController extends Controller
             'galleriesCount',
             'articlesCount'
         ));
+    }
+
+    public function showHomePage()
+    {
+        $reviews = Review::where('status', 1)
+                    ->latest()
+                    ->get();
+        return view('welcome', compact('reviews'));
     }
 
 }

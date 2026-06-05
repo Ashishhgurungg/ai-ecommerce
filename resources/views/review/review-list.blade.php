@@ -74,6 +74,17 @@
                     </div>
                 </div>
 
+                <form action="{{ route('reviews.status', $review->id) }}" method="POST" class="mt-4">
+                    @csrf
+                    <label for="status-{{ $review->id }}" class="sr-only">Review status</label>
+                    <div class="inline-block bg-slate-50 dark:bg-slate-900/30 border border-slate-100 dark:border-slate-800/20 rounded-lg px-3 py-2">
+                        <select id="status-{{ $review->id }}" name="status" onchange="this.form.submit()" class="bg-transparent text-[14px] text-slate-700 dark:text-slate-200 font-600 focus:outline-none">
+                            <option value="0" {{ (isset($review) && $review->status == 0) ? 'selected' : '' }}>Hidden</option>
+                            <option value="1" {{ (isset($review) && $review->status == 1) ? 'selected' : '' }}>Show</option>
+                        </select>
+                    </div>
+                </form>
+
                 {{-- Card Action Operations Control --}}
                 <div class="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-end text-[16px] font-600">
                     <a href="{{ url('/delete-review/' . $review->id) }}" 

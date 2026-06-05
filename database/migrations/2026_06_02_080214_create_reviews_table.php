@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('review');
+            $table->integer('status')->default(0); // 0: pending, 1: approved
             $table->timestamps();
         });
     }

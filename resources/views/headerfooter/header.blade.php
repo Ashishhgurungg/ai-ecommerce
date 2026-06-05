@@ -42,10 +42,10 @@
                     @auth
                         <a href="{{ url('/dashboard') }}" class="px-4 py-2 text-[18px] font-600 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-sm transition-all">Dashboard</a>
                     @else
-                        <a href="{{ route('login') }}" class="px-4 py-2 text-[18px] font-600 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 rounded-xl transition-colors">Log in</a>
-                        @if (Route::has('register'))
+                        <a href="{{ route('login') }}" class="px-4 py-2 text-[18px] font-600 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-xl shadow-sm transition-all">Log in</a>
+                        <!-- @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="px-4 py-2 text-[18px] font-600 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-xl shadow-sm transition-all">Register</a>
-                        @endif
+                        @endif -->
                     @endauth
                 </div>
             @endif
@@ -80,8 +80,8 @@
             <a href="{{ url('/dashboard') }}" class="mt-2 px-4 py-2 text-center text-[18px] font-600 bg-blue-600 text-white rounded-xl">Dashboard</a>
         @else
             <div class="mt-2 flex flex-col gap-2">
-                <a href="{{ route('login') }}" class="px-4 py-2 text-center text-[18px] font-600 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 rounded-xl">Log in</a>
-                <a href="{{ route('register') }}" class="px-4 py-2 text-center text-[18px] font-600 bg-slate-900 text-white rounded-xl">Register</a>
+                <a href="{{ route('login') }}" class="px-4 py-2 text-center text-[18px] font-600 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-xl shadow-sm transition-all">Log in</a>
+                <!-- <a href="{{ route('register') }}" class="px-4 py-2 text-center text-[18px] font-600 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 rounded-xl shadow-sm transition-all">Register</a> -->
             </div>
         @endauth
     </div>

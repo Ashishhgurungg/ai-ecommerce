@@ -115,57 +115,64 @@
         </div>
     </section>
 
-    {{-- ================= CLIENT TESTIMONIAL CAROUSEL SLIDER ================= --}}
-    <section class="py-20 bg-slate-100 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/60">
-        <div class="text-center max-w-xl mx-auto mb-12 px-6">
-            <h2 class="font-display text-[26px] sm:text-4xl font-700 text-slate-900 dark:text-slate-100 tracking-tight">
-                Customer Feedbacks
-            </h2>
-            <p class="text-[16px] text-slate-600 dark:text-slate-300 mt-1">
-                Real feedback from production environment evaluations.
-            </p>
+{{-- ================= CLIENT TESTIMONIAL CAROUSEL SLIDER ================= --}}
+<section class="py-20 bg-slate-100 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/60">
+
+    <div class="text-center max-w-xl mx-auto mb-12 px-6">
+        <h2 class="font-display text-[26px] sm:text-4xl font-700 text-slate-900 dark:text-slate-100 tracking-tight">
+            Customer Feedbacks
+        </h2>
+
+        <p class="text-[16px] text-slate-600 dark:text-slate-300 mt-1">
+            Real feedback from production environment evaluations.
+        </p>
+    </div>
+
+    {{-- Swiper System Housing Container --}}
+    <div class="swiper max-w-3xl mx-auto px-6 pb-12">
+
+        <div class="swiper-wrapper">
+
+            @forelse($reviews as $review)
+
+                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
+
+                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">
+                        “
+                    </span>
+
+                    <p class="text-[18px] sm:text-[20px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
+                        {{ $review->review }}
+                    </p>
+
+                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
+
+                    <h4 class="text-[16px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">
+                        — {{ $review->name }}
+                    </h4>
+
+                </div>
+
+            @empty
+
+                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
+
+                    <p class="text-slate-500">
+                        No customer feedback available yet.
+                    </p>
+
+                </div>
+
+            @endforelse
+
         </div>
 
-        {{-- Swiper System Housing Container --}}
-        <div class="swiper max-w-3xl mx-auto px-6 pb-12">
-            <div class="swiper-wrapper">
+        {{-- Swiper Interactive Pagination Dots --}}
+        <div class="swiper-pagination !-bottom-1"></div>
 
-                {{-- Slide Unit 1 --}}
-                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
-                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
-                    <p class="text-[18px] sm:text-[20px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
-                        Amazing service integration protocols! Truly professional response arrays and absolutely seamless delivery architectures.
-                    </p>
-                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
-                    <h4 class="text-[16px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— Emily Carter</h4>
-                </div>
+    </div>
 
-                {{-- Slide Unit 2 --}}
-                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
-                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
-                    <p class="text-[18px] sm:text-[20px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
-                        Their modular deliverables exceeded standard benchmarks completely. Highly recommended engineering framework patterns.
-                    </p>
-                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
-                    <h4 class="text-[13px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— John Michael</h4>
-                </div>
-
-                {{-- Slide Unit 3 --}}
-                <div class="swiper-slide bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800/80 p-8 sm:p-10 rounded-2xl shadow-sm text-center">
-                    <span class="text-3xl text-blue-500 font-serif leading-none block mb-3">“</span>
-                    <p class="text-[18px] sm:text-[20px] font-500 text-slate-700 dark:text-slate-300 italic max-w-xl mx-auto leading-relaxed">
-                        The core infrastructure support desk remains fully operational and hyper-responsive across deployment cycles.
-                    </p>
-                    <div class="w-8 h-px bg-slate-200 dark:bg-slate-800 mx-auto my-4"></div>
-                    <h4 class="text-[13px] font-700 text-slate-900 dark:text-slate-200 uppercase tracking-wider">— Sarah Williams</h4>
-                </div>
-
-            </div>
-
-            {{-- Swiper Interactive Pagination Dots --}}
-            <div class="swiper-pagination !-bottom-1"></div>
-        </div>
-    </section>
+</section>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

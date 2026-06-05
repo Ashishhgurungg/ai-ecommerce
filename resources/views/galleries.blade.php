@@ -7,13 +7,13 @@
     {{-- Section Architecture Header Block --}}
     <header class="text-center max-w-xl mx-auto mb-12">
         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[15px] font-700 tracking-wider text-blue-600 dark:text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 mb-3">
-            Past Event and Media Archives
+            Past Event and Software Solutions Archives
         </span>
         <h1 class="font-display text-3xl sm:text-4xl font-800 text-slate-900 dark:text-white tracking-tight">
-            Galleries & Media Repositories
+            Galleries of Past Events and Software Solutions
         </h1>
         <p class="mt-2 text-[16px] text-slate-600 dark:text-slate-300 leading-relaxed">
-            Browse through image collections and capture data frames from our past events.
+            Browse through image collections and capture data frames from our past events and software solutions.
         </p>
     </header>
 

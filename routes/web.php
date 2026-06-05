@@ -10,10 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ReviewController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
+Route::get('/', [HomeController::class, 'showHomePage'])->name('home');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -91,3 +88,4 @@ Route::get('/review', [ReviewController::class, 'showReviewForm']);
 Route::post('/submit-review', [ReviewController::class, 'submitReview'])->name('submit.review');
 Route::get('reviews', [ReviewController::class, 'listReviews']);
 Route::get('/delete-review/{id}', [ReviewController::class, 'destroyReview'])->middleware(['auth', 'password.confirm']);
+Route::post('/reviews/{id}/status', [ReviewController::class, 'updateStatus'])->name('reviews.status');
