@@ -43,7 +43,7 @@
         {{-- Responsive Registry Grid --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             @foreach($attendees as $attendee)
-                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+                <div class="bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800/80 rounded-2xl p-10 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
                     <div>
                         {{-- Name Header & Identity --}}
                         <div class="flex items-start justify-between gap-2 mb-4">

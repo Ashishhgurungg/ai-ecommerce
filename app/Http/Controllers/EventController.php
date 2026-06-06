@@ -70,7 +70,7 @@ class EventController extends Controller
         return redirect('/all-events')->with('success', 'Event deleted successfully!');
     }
 
-    public function showEventDetails($id)
+    public function showEventForm($id)
     {
         $event = Event::findOrFail($id);
         return view('events/register-event', compact('event'));
@@ -154,6 +154,12 @@ class EventController extends Controller
 
         // 4️⃣ Redirect with success message
         return redirect('/all-events')->with('success', 'Event updated successfully!');
+    }
+
+    public function showEventDetail($id)
+    {
+        $event = Event::findOrFail($id);
+        return view('events/event-detail', compact('event'));
     }
 
 

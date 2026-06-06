@@ -76,8 +76,9 @@ Route::get('/add-events', [EventController::class, 'showAddEventForm']);
 Route::post('/add-events', [EventController::class, 'addEvent']);
 Route::get('/all-events', [EventController::class, 'listAllEvents']);
 Route::get('/delete-event/{id}', [EventController::class, 'deleteEvent'])->middleware(['auth', 'password.confirm']);
+Route::get('/event/details/{id}', [EventController::class, 'showEventDetail']);
 
-Route::get('/events/{id}', [EventController::class, 'showEventDetails']);
+Route::get('/events/{id}', [EventController::class, 'showEventForm']);
 Route::post('/events/{id}/register', [EventController::class, 'registerForEvent'])->name('events.register');
 Route::get('/events/{id}/attendees', [EventController::class, 'listAttendees'])->middleware('auth');
 Route::get('/events/attendees/delete/{id}', [EventController::class, 'removeAttendee'])->middleware('auth');

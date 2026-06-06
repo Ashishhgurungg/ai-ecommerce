@@ -63,20 +63,20 @@
                                 {!! $event->description !!}
                             </span>
                         </p>
-
+<!-- 
                         <button
                             class="text-[14px] font-600 text-blue-600 dark:text-blue-400 mt-1 hover:underline focus:outline-none"
                             @click="expanded = !expanded"
                             x-text="expanded ? 'Collapse Description' : 'Expand Details'">
-                        </button>
+                        </button> -->
                     </div>
                 </div>
 
                 {{-- Action Pipeline Operational Module --}}
                 <div class="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-2">
-                    <a href="{{ url('/events/' . $event->id) }}" 
+                    <a href="{{ url('/event/details/' . $event->id) }}" 
                        class="w-full flex items-center justify-center px-4 py-4 bg-slate-900 hover:bg-slate-800 dark:bg-slate-100 dark:hover:bg-white text-white dark:text-slate-900 text-[16px] font-600 rounded-xl transition-all shadow-sm">
-                        Register for Session
+                        View Event Details and Register
                     </a>
                 </div>
 
