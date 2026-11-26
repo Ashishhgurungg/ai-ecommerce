@@ -18,7 +18,7 @@ class ServiceTest extends TestCase
             'description' => ' A test service',
             'price' => 10,
         ]);
-        
+
         $ratings = [5, 4, 3];
 
         foreach($ratings as $rating) {
@@ -33,4 +33,16 @@ class ServiceTest extends TestCase
         $this->assertEquals(4.0, $service->fresh()->average_rating);
         //$this->assertEquals(4.0, $service->fresh()->getAverageRatingAttribute()); //can be done as well as the method is public, but the above is more elegant and follows the laravel naming convention.
     }
+
+    // public function test_it_returns_null_if_no_ratings(): void
+    // {
+    //     $service = Service::create([
+    //         'name' => 'example service',
+    //         'description' => ' A test service',
+    //         'price' => 10,
+    //     ]);
+
+    //     $this->assertNull($service->fresh()->average_rating);
+    // }
+
 }
